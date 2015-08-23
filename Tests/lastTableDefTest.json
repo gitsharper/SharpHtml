@@ -1,0 +1,49 @@
+{
+  "CaptionStyles": [],
+  "TableAttributesStyles": [],
+  "TheadStyles": [],
+  "TbodyStyles": [],
+  "TfootStyles": [],
+  "HeaderStyles": [
+    [
+      "font-size : 22",
+      "font-weight : bold"
+    ],
+    [
+      "font-size : 32",
+      "font-weight : bold"
+    ],
+    [
+      "font-size : 42",
+      "font-weight : bold"
+    ]
+  ],
+  "BodyStyles": [
+    [
+      "font-size : 22",
+      "font-weight : bold"
+    ],
+    [
+      "font-size : 32",
+      "font-weight : bold"
+    ],
+    [
+      "font-size : 42",
+      "font-weight : bold"
+    ]
+  ],
+  "FooterStyles": [
+    [
+      "font-size : 22",
+      "font-weight : bold"
+    ],
+    [
+      "font-size : 32",
+      "font-weight : bold"
+    ],
+    [
+      "font-size : 42",
+      "font-weight : bold"
+    ]
+  ]
+}

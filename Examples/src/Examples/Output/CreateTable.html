@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><title>
+    untitled
+  </title>
+  
+  <style type="text/css">
+    #body2 {
+      background : lightgray;
+    }
+    .clstable1  {
+      width : 90%;
+    }
+  </style>
+  
+  <link rel="stylesheet" href="assets/css/code.css">
+  <script src="assets/rainbow/rainbow.min.js">
+  </script>
+  
+  <script src="assets/rainbow/language/csharp.js">
+  </script>
+  
+  </head> <body id="body2">
+    <table id="table1" border="0" class="clstable1">
+      <caption>
+        Checking Account
+      </caption>
+      
+      <colgroup>
+      </colgroup>
+      
+      <tbody>
+      </tbody>
+      
+    </table>
+    
+    <pre>
+      <code data-language="csharp">
+        #region CreateTable
+            public void CreateTable()
+            {
+              var table = new Table( caption : "Checking Account", border : 0, id : "", attrAndStyles : "width : 90%" );
+              Render( table );
+            }
+            #endregion
+      </code>
+      
+    </pre>
+    
+  </body>
+  
+</html>
+

@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EC880E1A-5DDA-4266-A1BE-76BFE468CB64}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NmpHtml</RootNamespace>
+    <AssemblyName>HtmlHelpers</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Extensions\Css\CssExtensions.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CssExtensions.cs.nmp4</DependentUpon>
+    </Compile>
+    <Compile Include="src\Extensions\TableTemplate\TableTemplate -Table.cs" />
+    <Compile Include="src\Extensions\TableTemplate\TableTemplate - IDefine.cs" />
+    <Compile Include="src\Extensions\TableTemplate\TableTemplate - IActive.cs" />
+    <Compile Include="src\Helpers\CharsAndTokens.cs" />
+    <Compile Include="src\Extensions\LocalExtensions.cs" />
+    <Compile Include="src\Extensions\TableTemplate\TableTemplate.cs" />
+    <Compile Include="src\Helpers\Utilities.cs" />
+    <Compile Include="src\Helpers\AttributesDictionary.cs" />
+    <Compile Include="src\Helpers\HtmlHelpers.cs" />
+    <Compile Include="src\Helpers\HtmlItemsDictionary.cs" />
+    <Compile Include="src\Helpers\FuncRenderer.cs" />
+    <Compile Include="src\Helpers\StringIndexer.cs" />
+    <Compile Include="src\HtmlWrapper.cs" />
+    <Compile Include="src\Interfaces\IRender.cs" />
+    <Compile Include="src\Helpers\RenderString.cs" />
+    <Compile Include="src\Helpers\StylesDictionary.cs" />
+    <Compile Include="src\Interfaces\IActiveTableTemplate.cs" />
+    <Compile Include="src\Interfaces\IDefineTableTemplate.cs" />
+    <Compile Include="src\Interfaces\IStyles.cs" />
+    <Compile Include="src\Layouts\FixedSidebarLayout.cs" />
+    <Compile Include="src\Layouts\SidebarLayout.cs" />
+    <Compile Include="src\SimplePage\ContentGenerator.cs" />
+    <Compile Include="src\SimplePage\SimpleHtml.cs" />
+    <Compile Include="src\SimplePage\SimplePage.cs" />
+    <Compile Include="src\SimplePage\StaticSimpleHtml.cs" />
+    <Compile Include="src\TableTemplate\ActiveTableTemplate.cs" />
+    <Compile Include="src\TableTemplate\TableTemplateBase.cs" />
+    <Compile Include="src\Tags\Html\Body\Body.cs" />
+    <Compile Include="src\Tags\Html\Body\Span.cs" />
+    <Compile Include="src\Tags\Html\Head\Head.cs" />
+    <Compile Include="src\Tags\Html\Head\Meta.cs" />
+    <Compile Include="src\Tags\Html\Head\Title.cs" />
+    <Compile Include="src\Tags\Html\Html.cs" />
+    <Compile Include="src\Tags\Html\Head\Style.cs" />
+    <Compile Include="src\Tags\Html\Head\Link.cs" />
+    <Compile Include="src\Helpers\StyleBlockList.cs" />
+    <Compile Include="src\Helpers\StyleBlock.cs" />
+    <Compile Include="src\Tags\Html\Script.cs" />
+    <Compile Include="src\Tags\Navigation\A.cs" />
+    <Compile Include="src\Tags\Others\Abbr.cs" />
+    <Compile Include="src\Tags\Others\Address.cs" />
+    <Compile Include="src\Tags\Others\Area.cs" />
+    <Compile Include="src\Tags\Others\Article.cs" />
+    <Compile Include="src\Tags\Others\Aside.cs" />
+    <Compile Include="src\Tags\Others\Audio.cs" />
+    <Compile Include="src\Tags\Others\B.cs" />
+    <Compile Include="src\Tags\Others\Base.cs" />
+    <Compile Include="src\Tags\Others\Bdi.cs" />
+    <Compile Include="src\Tags\Others\Bdo.cs" />
+    <Compile Include="src\Tags\Others\Blockquote.cs" />
+    <Compile Include="src\Tags\Others\Br.cs" />
+    <Compile Include="src\Tags\Others\Button.cs" />
+    <Compile Include="src\Tags\Others\Canvas.cs" />
+    <Compile Include="src\Tags\Others\Cite.cs" />
+    <Compile Include="src\Tags\Others\Code.cs" />
+    <Compile Include="src\Tags\Others\Data.cs" />
+    <Compile Include="src\Tags\Others\Datalist.cs" />
+    <Compile Include="src\Tags\List\Dd.cs" />
+    <Compile Include="src\Tags\Others\Del.cs" />
+    <Compile Include="src\Tags\Others\Details.cs" />
+    <Compile Include="src\Tags\Others\Dfn.cs" />
+    <Compile Include="src\Tags\Others\Dialog.cs" />
+    <Compile Include="src\Tags\Others\Div.cs" />
+    <Compile Include="src\Tags\List\Dl.cs" />
+    <Compile Include="src\Tags\List\Dt.cs" />
+    <Compile Include="src\Tags\Others\Em.cs" />
+    <Compile Include="src\Tags\Others\Embed.cs" />
+    <Compile Include="src\Tags\Others\Fieldset.cs" />
+    <Compile Include="src\Tags\Others\Figcaption.cs" />
+    <Compile Include="src\Tags\Others\Figure.cs" />
+    <Compile Include="src\Tags\Others\Footer.cs" />
+    <Compile Include="src\Tags\Others\Form.cs" />
+    <Compile Include="src\Tags\Others\H1.cs" />
+    <Compile Include="src\Tags\Others\H2.cs" />
+    <Compile Include="src\Tags\Others\H3.cs" />
+    <Compile Include="src\Tags\Others\H4.cs" />
+    <Compile Include="src\Tags\Others\H5.cs" />
+    <Compile Include="src\Tags\Others\H6.cs" />
+    <Compile Include="src\Tags\Others\Header.cs" />
+    <Compile Include="src\Tags\Others\Hgroup.cs" />
+    <Compile Include="src\Tags\Others\Hr.cs" />
+    <Compile Include="src\Tags\Others\I.cs" />
+    <Compile Include="src\Tags\Others\Iframe.cs" />
+    <Compile Include="src\Tags\Others\Img.cs" />
+    <Compile Include="src\Tags\Others\Input.cs" />
+    <Compile Include="src\Tags\Others\Ins.cs" />
+    <Compile Include="src\Tags\Others\Kbd.cs" />
+    <Compile Include="src\Tags\Others\Keygen.cs" />
+    <Compile Include="src\Tags\Others\Label.cs" />
+    <Compile Include="src\Tags\Others\Legend.cs" />
+    <Compile Include="src\Tags\List\Li.cs" />
+    <Compile Include="src\Tags\Others\Main.cs" />
+    <Compile Include="src\Tags\Others\Map.cs" />
+    <Compile Include="src\Tags\Others\Mark.cs" />
+    <Compile Include="src\Tags\Others\Menu.cs" />
+    <Compile Include="src\Tags\Others\Menuitem.cs" />
+    <Compile Include="src\Tags\Others\Meter.cs" />
+    <Compile Include="src\Tags\Navigation\Nav.cs" />
+    <Compile Include="src\Tags\Others\Noscript.cs" />
+    <Compile Include="src\Tags\Others\Object.cs" />
+    <Compile Include="src\Tags\List\Ol.cs" />
+    <Compile Include="src\Tags\Others\Optgroup.cs" />
+    <Compile Include="src\Tags\Others\Option.cs" />
+    <Compile Include="src\Tags\Others\Output.cs" />
+    <Compile Include="src\Tags\Others\P.cs" />
+    <Compile Include="src\Tags\Others\Param.cs" />
+    <Compile Include="src\Tags\Others\Pre.cs" />
+    <Compile Include="src\Tags\Others\Progress.cs" />
+    <Compile Include="src\Tags\Others\Q.cs" />
+    <Compile Include="src\Tags\Others\Rb.cs" />
+    <Compile Include="src\Tags\Others\Rp.cs" />
+    <Compile Include="src\Tags\Others\Rt.cs" />
+    <Compile Include="src\Tags\Others\Rtc.cs" />
+    <Compile Include="src\Tags\Others\Ruby.cs" />
+    <Compile Include="src\Tags\Others\S.cs" />
+    <Compile Include="src\Tags\Others\Samp.cs" />
+    <Compile Include="src\Tags\Others\Section.cs" />
+    <Compile Include="src\Tags\Others\Select.cs" />
+    <Compile Include="src\Tags\Others\Small.cs" />
+    <Compile Include="src\Tags\Others\Source.cs" />
+    <Compile Include="src\Tags\Others\Strong.cs" />
+    <Compile Include="src\Tags\Others\Sub.cs" />
+    <Compile Include="src\Tags\Others\Summary.cs" />
+    <Compile Include="src\Tags\Others\Sup.cs" />
+    <Compile Include="src\Tags\Others\Template.cs" />
+    <Compile Include="src\Tags\Others\Textarea.cs" />
+    <Compile Include="src\Tags\Others\Time.cs" />
+    <Compile Include="src\Tags\Others\Track.cs" />
+    <Compile Include="src\Tags\Others\U.cs" />
+    <Compile Include="src\Tags\List\Ul.cs" />
+    <Compile Include="src\Tags\Others\Var.cs" />
+    <Compile Include="src\Tags\Others\Video.cs" />
+    <Compile Include="src\Tags\Others\Wbr.cs" />
+    <Compile Include="src\Tags\RawContent.cs" />
+    <Compile Include="src\Tags\Table\Caption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Helpers\StylesDictionaryList.cs" />
+    <Compile Include="src\Tags\Table\TableHelperT.cs" />
+    <Compile Include="src\TableTemplate\DefineTableTemplate.cs" />
+    <Compile Include="src\Tags\Tag.cs" />
+    <Compile Include="src\Tags\Table\Colgroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Tags\Table\Thead.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Tags\Table\Th.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Tags\Table\Tr.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Tags\Table\Col.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Tags\Table\Tbody.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Tags\Table\Td.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Tags\Table\Tfoot.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Tags\Table\Table.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Tags\TagList.cs" />
+    <Compile Include="src\Tags\QuickTag.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\Builders\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Extensions\Css\CssExtensions.cs.nmp4">
+      <Generator>Nmp4</Generator>
+      <LastGenOutput>CssExtensions.cs</LastGenOutput>
+    </None>
+    <None Include="src\Tags\Others\OtherTags.txt.nmp4">
+      <Generator>Nmp4</Generator>
+      <LastGenOutput>OtherTags.txt</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\Tags\Others\OtherTags.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtherTags.txt.nmp4</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
