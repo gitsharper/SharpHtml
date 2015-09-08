@@ -16,13 +16,53 @@ namespace SharpHtml {
 
 	/////////////////////////////////////////////////////////////////////////////
 
-	public class StyleBlock : StylesDictionary {
+	//
+	// because we inherit from StylesDictionary we get all the extension methods
+	// BUT if we use them they return StylesDictionary, we want StyleBlock
+	//
+
+	public class StyleBlock : StylesDictionary, IStyles<StyleBlock> {
 
 		public string Name { get; protected set; } = "";
 
 		//
 		// the extension method AddToDictionary() should find us
 		//
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public new StyleBlock ReplaceStyle( string key, string value )
+		{
+			base.ReplaceStyle( key, value );
+			return this;
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public new StyleBlock AddStyle( string key, string value )
+		{
+			base.AddStyle( key, value );
+			return this;
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public new StyleBlock AddStyles( IEnumerable<string> styles )
+		{
+			base.AddStyles( styles );
+			return this;
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public new StyleBlock AddStyles( params string [] styles )
+		{
+			return AddStyles( (IEnumerable<string>) styles );
+		}
+
 
 		/////////////////////////////////////////////////////////////////////////////
 
@@ -33,6 +73,14 @@ namespace SharpHtml {
 				sb.Add( kvp.Key, kvp.Value );
 			}
 			return sb;
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public StyleBlock()
+		{
+			Name = string.Empty;
 		}
 
 
@@ -59,7 +107,7 @@ namespace SharpHtml {
 		{
 		}
 
-		
+
 		/////////////////////////////////////////////////////////////////////////////
 
 		public StyleBlock( string name, StylesDictionary styles )

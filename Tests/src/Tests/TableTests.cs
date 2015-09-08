@@ -21,8 +21,13 @@ using SharpHtml;
 namespace Tests {
 
 
+	//
+	// started creating tests with good intentions but they all turned out to be
+	// examples of one sort or another so they were moved to the examples project
+	//
+
 	/////////////////////////////////////////////////////////////////////////////
-	
+
 	public class TableTests {
 
 		///////////////////////////////////////////////////////////////////////////////

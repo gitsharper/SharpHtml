@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><title>
+  </title>
+  
+  <style type="text/css">
+    .clsmoneyFlow td, th {
+      border : 1px solid black;
+    }
+    .clsmoneyFlow  {
+      table-layout : fixed;
+      border-collapse : collapse;
+      margin : 0px;
+      padding : 0;
+      background : ivory;
+    }
+    .clsmoneyFlow thead tr th:nth-child(1) {
+      text-align : center;
+      width : 125px;
+    }
+    .clsmoneyFlow thead tr th:nth-child(2) {
+      text-align : center;
+      width : 100px;
+    }
+    .clsmoneyFlow thead tr th:nth-child(3) {
+      text-align : center;
+      width : 100px;
+    }
+    .clsmoneyFlow thead tr th:nth-child(4) {
+      text-align : center;
+      width : 100px;
+    }
+    .clsmoneyFlow thead tr th:nth-child(5) {
+      text-align : center;
+      width : 100px;
+    }
+    .clsmoneyFlow thead tr th:nth-child(6) {
+      text-align : center;
+      width : 100px;
+    }
+    .clsmoneyFlow thead tr th:nth-child(7) {
+      text-align : center;
+      width : 100px;
+    }
+    .clsmoneyFlow tbody tr td:nth-child(1) {
+      text-align : right;
+      padding-right : 5px;
+    }
+    .clsmoneyFlow tbody tr td:nth-child(2) {
+      text-align : right;
+      padding-right : 5px;
+    }
+    .clsmoneyFlow tbody tr td:nth-child(3) {
+      text-align : right;
+      padding-right : 5px;
+    }
+    .clsmoneyFlow tbody tr td:nth-child(4) {
+      text-align : right;
+      padding-right : 5px;
+    }
+    .clsmoneyFlow tbody tr td:nth-child(5) {
+      text-align : right;
+      padding-right : 5px;
+    }
+    .clsmoneyFlow tbody tr td:nth-child(6) {
+      text-align : right;
+      padding-right : 5px;
+    }
+    .clsmoneyFlow tbody tr td:nth-child(7) {
+      text-align : right;
+      padding-right : 5px;
+    }
+  </style>
+  
+  <link rel="stylesheet" href="../Output/assets/css/code.css">
+  <script src="../Output/assets/rainbow/rainbow.min.js">
+  </script>
+  
+  <script src="../Output/assets/rainbow/language/csharp.js">
+  </script>
+  
+  </head> <body>
+    <h4>
+      Same as TableWithSomeFormatting3() only using a template, a little more verbose but usable many times
+    </h4>
+    
+    <table class="clsmoneyFlow" border="0">
+      <caption>
+      </caption>
+      
+      <colgroup>
+      </colgroup>
+      
+      <thead>
+        <tr>
+          <th colspan="4"></th> <th colspan="3">4 month moving average</th> 
+        </tr>
+        
+        <tr>
+          <th>Ending Date</th> <th>In</th> <th>Out</th> <th>Diff</th> <th>Moving Avg In</th> <th>Moving Avg Out</th> <th>Moving Avg Diff</th> 
+        </tr>
+        
+      </thead>
+      
+      <tbody>
+        <tr>
+          <td>
+            07 Aug 2015
+          </td>
+          
+          <td>
+            2,256.38
+          </td>
+          
+          <td>
+            4,181.81
+          </td>
+          
+          <td style="color : red; ">
+            -1,925.43
+          </td>
+          
+          <td>
+            <s>
+              4,056.74
+            </s>
+            
+          </td>
+          
+          <td>
+            <s>
+              5,581.50
+            </s>
+            
+          </td>
+          
+          <td style="color : red; ">
+            <s>
+              -1,524.76
+            </s>
+            
+          </td>
+          
+        </tr>
+        
+        <tr>
+          <td>
+            31 Jul 2015
+          </td>
+          
+          <td>
+            5,836.41
+          </td>
+          
+          <td>
+            6,258.67
+          </td>
+          
+          <td style="color : red; ">
+            -422.26
+          </td>
+          
+          <td>
+            6,144.27
+          </td>
+          
+          <td>
+            6,400.80
+          </td>
+          
+          <td style="color : red; ">
+            -256.53
+          </td>
+          
+        </tr>
+        
+        <tr>
+          <td>
+            30 Jun 2015
+          </td>
+          
+          <td>
+            4,077.42
+          </td>
+          
+          <td>
+            6,304.02
+          </td>
+          
+          <td style="color : red; ">
+            -2,226.60
+          </td>
+          
+          <td>
+            6,660.57
+          </td>
+          
+          <td>
+            6,945.06
+          </td>
+          
+          <td style="color : red; ">
+            -284.49
+          </td>
+          
+        </tr>
+        
+        <tr>
+          <td>
+            29 May 2015
+          </td>
+          
+          <td>
+            8,518.98
+          </td>
+          
+          <td>
+            6,639.72
+          </td>
+          
+          <td>
+            1,879.26
+          </td>
+          
+          <td>
+            7,524.96
+          </td>
+          
+          <td>
+            7,594.78
+          </td>
+          
+          <td style="color : red; ">
+            -69.82
+          </td>
+          
+        </tr>
+        
+        <tr>
+          <td>
+            30 Apr 2015
+          </td>
+          
+          <td>
+            7,385.32
+          </td>
+          
+          <td>
+            7,891.44
+          </td>
+          
+          <td style="color : red; ">
+            -506.12
+          </td>
+          
+          <td>
+            7,725.14
+          </td>
+          
+          <td>
+            8,204.91
+          </td>
+          
+          <td style="color : red; ">
+            -479.77
+          </td>
+          
+        </tr>
+        
+        <tr>
+          <td>
+            31 Mar 2015
+          </td>
+          
+          <td>
+            6,670.57
+          </td>
+          
+          <td>
+            8,253.18
+          </td>
+          
+          <td style="color : red; ">
+            -1,582.61
+          </td>
+          
+          <td>
+            8,023.20
+          </td>
+          
+          <td>
+            8,105.12
+          </td>
+          
+          <td style="color : red; ">
+            -81.91
+          </td>
+          
+        </tr>
+        
+        <tr>
+          <td>
+            27 Feb 2015
+          </td>
+          
+          <td>
+            9,119.52
+          </td>
+          
+          <td>
+            8,470.10
+          </td>
+          
+          <td>
+            649.42
+          </td>
+          
+          <td>
+            7,902.59
+          </td>
+          
+          <td>
+            7,885.88
+          </td>
+          
+          <td>
+            16.71
+          </td>
+          
+        </tr>
+        
+        <tr>
+          <td>
+            30 Jan 2015
+          </td>
+          
+          <td>
+            8,279.52
+          </td>
+          
+          <td>
+            7,592.07
+          </td>
+          
+          <td>
+            687.45
+          </td>
+          
+          <td>
+            7,393.23
+          </td>
+          
+          <td>
+            7,336.44
+          </td>
+          
+          <td>
+            56.78
+          </td>
+          
+        </tr>
+        
+        <tr>
+          <td>
+            31 Dec 2014
+          </td>
+          
+          <td>
+            6,308.74
+          </td>
+          
+          <td>
+            7,595.48
+          </td>
+          
+          <td style="color : red; ">
+            -1,286.74
+          </td>
+          
+          <td>
+            7,092.90
+          </td>
+          
+          <td>
+            6,218.56
+          </td>
+          
+          <td>
+            874.34
+          </td>
+          
+        </tr>
+        
+        <tr>
+          <td>
+            28 Nov 2014
+          </td>
+          
+          <td>
+            7,591.42
+          </td>
+          
+          <td>
+            6,821.78
+          </td>
+          
+          <td>
+            769.64
+          </td>
+          
+          <td>
+            7,415.47
+          </td>
+          
+          <td>
+            7,664.33
+          </td>
+          
+          <td style="color : red; ">
+            -248.86
+          </td>
+          
+        </tr>
+        
+        <tr>
+          <td>
+            31 Oct 2014
+          </td>
+          
+          <td>
+            7,378.55
+          </td>
+          
+          <td>
+            4,238.43
+          </td>
+          
+          <td>
+            3,140.12
+          </td>
+          
+          <td>
+            8,222.23
+          </td>
+          
+          <td>
+            7,962.84
+          </td>
+          
+          <td>
+            259.39
+          </td>
+          
+        </tr>
+        
+        <tr>
+          <td>
+            30 Sep 2014
+          </td>
+          
+          <td>
+            7,276.43
+          </td>
+          
+          <td>
+            11,932.78
+          </td>
+          
+          <td style="color : red; ">
+            -4,656.35
+          </td>
+          
+          <td>
+            8,141.03
+          </td>
+          
+          <td>
+            9,360.53
+          </td>
+          
+          <td style="color : red; ">
+            -1,219.50
+          </td>
+          
+        </tr>
+        
+        <tr>
+          <td>
+            29 Aug 2014
+          </td>
+          
+          <td>
+            10,011.72
+          </td>
+          
+          <td>
+            7,717.32
+          </td>
+          
+          <td>
+            2,294.40
+          </td>
+          
+          <td>
+            7,726.03
+          </td>
+          
+          <td>
+            8,282.67
+          </td>
+          
+          <td style="color : red; ">
+            -556.64
+          </td>
+          
+        </tr>
+        
+        <tr>
+          <td>
+            31 Jul 2014
+          </td>
+          
+          <td>
+            7,134.93
+          </td>
+          
+          <td>
+            8,431.49
+          </td>
+          
+          <td style="color : red; ">
+            -1,296.56
+          </td>
+          
+          <td>
+            7,142.07
+          </td>
+          
+          <td>
+            10,462.32
+          </td>
+          
+          <td style="color : red; ">
+            -3,320.25
+          </td>
+          
+        </tr>
+        
+        <tr>
+          <td>
+            30 Jun 2014
+          </td>
+          
+          <td>
+            6,031.45
+          </td>
+          
+          <td>
+            8,699.21
+          </td>
+          
+          <td style="color : red; ">
+            -2,667.76
+          </td>
+          
+          <td>
+            12,015.91
+          </td>
+          
+          <td>
+            12,600.54
+          </td>
+          
+          <td style="color : red; ">
+            -584.63
+          </td>
+          
+        </tr>
+        
+        <tr>
+          <td>
+            30 May 2014
+          </td>
+          
+          <td>
+            8,259.83
+          </td>
+          
+          <td>
+            14,256.27
+          </td>
+          
+          <td style="color : red; ">
+            -5,996.44
+          </td>
+          
+          <td>
+            10,976.41
+          </td>
+          
+          <td>
+            12,694.37
+          </td>
+          
+          <td style="color : red; ">
+            -1,717.96
+          </td>
+          
+        </tr>
+        
+        <tr>
+          <td>
+            30 Apr 2014
+          </td>
+          
+          <td>
+            21,756.45
+          </td>
+          
+          <td>
+            14,846.13
+          </td>
+          
+          <td>
+            6,910.32
+          </td>
+          
+          <td>
+            13,458.87
+          </td>
+          
+          <td>
+            12,404.63
+          </td>
+          
+          <td>
+            1,054.24
+          </td>
+          
+        </tr>
+        
+        <tr>
+          <td>
+            31 Mar 2014
+          </td>
+          
+          <td>
+            2,912.95
+          </td>
+          
+          <td>
+            8,980.71
+          </td>
+          
+          <td style="color : red; ">
+            -6,067.76
+          </td>
+          
+          <td>
+            0.00
+          </td>
+          
+          <td>
+            0.00
+          </td>
+          
+          <td>
+            0.00
+          </td>
+          
+        </tr>
+        
+        <tr>
+          <td>
+            28 Feb 2014
+          </td>
+          
+          <td>
+            15,707.21
+          </td>
+          
+          <td>
+            13,387.04
+          </td>
+          
+          <td>
+            2,320.17
+          </td>
+          
+          <td>
+            0.00
+          </td>
+          
+          <td>
+            0.00
+          </td>
+          
+          <td>
+            0.00
+          </td>
+          
+        </tr>
+        
+      </tbody>
+      
+      <tfoot>
+        <tr>
+          <td colspan="7" style="color : gray; padding-left : 10px; ">
+            strikethrough values (<s>814.22</s>) indicate incomplete data for the months moving average
+          </td>
+          
+        </tr>
+        
+      </tfoot>
+      
+    </table>
+    
+    <pre>
+      <code data-language="csharp">
+        #region code
+            Tag ModifyTags( AccountSummaryData.Data data, int row, int column, Tag tag )
+            {
+              // ******
+              Tag returnTag = null;
+        
+              // ******
+              if( 0 == row && column > 3 ) {
+                returnTag = new QuickTag( "s" );
+                returnTag.Value = tag.Value;
+                tag.Value = null;
+              }
+        
+              // ******
+              if( 6 == column && data.Col7 < 0 ) {
+                tag.AddStyles( "color : red" );
+              }
+        
+              // ******
+              return returnTag;
+            }
+        
+        
+            /////////////////////////////////////////////////////////////////////////////
+        
+            public Tuple<string, string> Build()
+            {
+              // ******
+              var tagList = new TagList { };
+        
+              tagList.AddChild( new QuickTag( "h4" )
+                .SetValue( About )
+              );
+        
+              // ******
+              var instance = Templates.MoneyFlowTemplate.CreateTemplateInstance();
+              foreach( var item in AccountSummaryData.Create() ) {
+                instance.AddBodyRow(
+                  //
+                  // we can modify cells as they are added
+                  //
+                  ( row, column, tag ) => ModifyTags( item, row, column, tag ),
+        
+                  item.Col1.ToString( "dd MMM yyyy" ),
+                  item.Col2.ToString( "n" ),
+                  item.Col3.ToString( "n" ),
+        
+                  //
+                  // we don't have to monitor each tag as it's created, we can 
+                  // modify the tag "inline" by passing a CellFunc as a callback,
+                  // note: we do have to add the data ourself
+                  //
+                  (CellFunc) (( row, col, tag ) => {
+                    tag.SetValue( item.Col4.ToString( "n" ) );
+                    if( item.Col4 < 0 ) {
+                      tag.AddStyles( "color : red" );
+                    }
+                    return null;
+                  }),
+        
+                  item.Col5.ToString( "n" ),
+                  item.Col6.ToString( "n" ),
+        
+                  //
+                  // yet another way to customize the adding of data, if we pass an IEnumerable<string>
+                  // the first string will be used for the content of the tag and the remaining
+                  // items are parsed as attributes and styles ("style : value", "attribute = value")
+                  //
+                  Content( item.Col7.ToString( "n" ), item.Col7 < 0 ? "color : red" : "" )
+                );
+              }
+        
+              // ******
+              tagList.AddChild( instance.CreateTable() );
+              return new Tuple<string, string>( Render( tagList ), About );
+            }
+            #endregion
+      </code>
+      
+    </pre>
+    
+  </body>
+  
+</html>
+

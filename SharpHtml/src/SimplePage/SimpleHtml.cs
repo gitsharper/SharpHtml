@@ -110,15 +110,12 @@ namespace SharpHtml.Simple {
 
 		///////////////////////////////////////////////////////////////////////////////
 
-		public virtual IEnumerable<Tag> ForHead( string pageTitle )
+		public virtual IEnumerable<Tag> EnumHead( string pageTitle )
 		{
 			//
 			// this allowed the author to conceptualize what he was doing, tags are
 			// created but are added to their parent tag by the caller
 			//
-
-			// ******
-			yield return new Title( pageTitle );
 
 			// ******
 			if( !string.IsNullOrEmpty( IncludePath ) ) {
@@ -139,15 +136,12 @@ namespace SharpHtml.Simple {
 
 			// ******
 			yield return Script.NewScriptRef( "js/vendor/modernizr-2.8.3-respond-1.4.2.min.js" );
-
-			// ******
-			yield return Style = new Style { };
 		}
 
 
 		/////////////////////////////////////////////////////////////////////////////
 
-		public virtual IEnumerable<Tag> ForBody()
+		public virtual IEnumerable<Tag> EnumBody()
 		{
 			//
 			// same as 'ForHead()', here we do add child tags to their parent, but it
@@ -209,15 +203,15 @@ namespace SharpHtml.Simple {
 			// ******
 			IncludePath = string.IsNullOrWhiteSpace( includePath ) ? string.Empty : includePath;
 
+			Title.SetValue( title );
+
 			// ******
-			Children.AddChild( Head = new Head { } );
-			foreach( var tag in ForHead( title ) ) {
+			foreach( var tag in EnumHead( title ) ) {
 				Head.Children.AddChild( tag );
 			}
 
 			// ******
-			Children.AddChild( Body = new Body { } );
-			foreach( var tag in ForBody() ) {
+			foreach( var tag in EnumBody() ) {
 				Body.Children.AddChild( tag );
 			}
 

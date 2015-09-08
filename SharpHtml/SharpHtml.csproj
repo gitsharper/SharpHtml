@@ -7,8 +7,8 @@
     <ProjectGuid>{EC880E1A-5DDA-4266-A1BE-76BFE468CB64}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NmpHtml</RootNamespace>
-    <AssemblyName>HtmlHelpers</AssemblyName>
+    <RootNamespace>SharpHtml</RootNamespace>
+    <AssemblyName>SharpHtml</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -46,6 +46,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CssExtensions.cs.nmp4</DependentUpon>
     </Compile>
+    <Compile Include="src\Extensions\Css\CssTagExtensions.cs" />
     <Compile Include="src\Extensions\TableTemplate\TableTemplate -Table.cs" />
     <Compile Include="src\Extensions\TableTemplate\TableTemplate - IDefine.cs" />
     <Compile Include="src\Extensions\TableTemplate\TableTemplate - IActive.cs" />
@@ -231,6 +232,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\Helpers\StyleSheet.cs" />
     <Content Include="src\Tags\Others\OtherTags.txt">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

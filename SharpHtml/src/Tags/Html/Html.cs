@@ -71,7 +71,7 @@ namespace SharpHtml {
 
 		public Html()
 		{
-
+			Defaults( string.Empty, null );
 		}
 
 

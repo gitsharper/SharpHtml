@@ -220,6 +220,18 @@ namespace SharpHtml {
 
 
 		/////////////////////////////////////////////////////////////////////////////
+		/// <summary>
+		/// Allows the setting of one set of styles for multiple columns with an optional (may be null)
+		/// StylesFunc that can be supplied so individual column styles can be added, modified or removed.
+		/// 
+		/// An example would we all columns are identical except the last column needs text that is bold,
+		/// and red.
+		/// </summary>
+		/// <param name="id">TableSectionId that represents the styles list to add too</param>
+		/// <param name="stylesFunc">A callback to allow the modification of the styles for a specfic column</param>
+		/// <param name="nColumns">Number of columns, must be at least one</param>
+		/// <param name="styles">Default styles to apply to each column</param>
+		/// <returns></returns>
 
 		public Table SetDefaultStyles( TableSectionId id, StylesFunc stylesFunc, int nColumns, params string [] styles )
 		{
@@ -304,7 +316,10 @@ namespace SharpHtml {
 			var items = new List<Tuple<Type, object>> { };
 
 			foreach( var value in values ) {
-				if( value is string ) {
+				if( null == value) {
+					continue;
+				}
+				else if( value is string ) {
 					items.Add( new Tuple<Type, object>( typeof( string ), value ) );
 				}
 				else if( value is IEnumerable<string> ) {

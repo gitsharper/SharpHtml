@@ -1,6 +1,5 @@
 #.pushBuffer(-1)
 
-;;#.addExtensionClass( `char')
 #.newStaticStandIn( `char', `Char')
 
 (#defmacro `#fixName', `name')
@@ -13,11 +12,6 @@
 
 		/////////////////////////////////////////////////////////////////////////////
 
-;;		public static Tag #fixName(`$name')( this Tag tag, string values )
-;;		{
-;;			tag.AddStyle( "$name", values );
-;;			return tag;
-;;		}
 		public static T #fixName(`$name')<T>( this IStyles<T> styles, string values )
 			where T : class
 		{
@@ -55,7 +49,7 @@ namespace SharpHtml {
 
 	/////////////////////////////////////////////////////////////////////////////
 
-	public static partial class CssTagExtensions {
+	partial class CssTagExtensions {
 
 CreateExtension( `azimuth' )
 CreateExtension( `background-attachment' )
