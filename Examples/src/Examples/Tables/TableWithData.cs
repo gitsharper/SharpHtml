@@ -46,7 +46,7 @@ namespace Examples {
 			}
 
 			// ******
-			return new Tuple<string, string>( Render( tagList ), About );
+			return new Tuple<string, string>( Render( tagList ), nameof( TableWithData ) );
 		}
 		#endregion
 	}

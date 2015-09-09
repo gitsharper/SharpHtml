@@ -15,55 +15,29 @@ using System.Threading.Tasks;
 
 namespace SharpHtml {
 
-
 	/////////////////////////////////////////////////////////////////////////////
 
 	public class Html : Tag {
 		protected override string _TagName { get { return "html"; } }
 
-		// ******
-		public string Language { get; set; } = "en";
-
-		// ******
-		public Title Title { get; protected set; }
-		public Style Style { get; protected set; }
-		public Head Head { get; protected set; }
-		public Body Body { get; protected set; }
+		//
+		// this must be added to the <head> element otherwise it will never
+		// be rendered
+		//
+		public Style Style { get; protected set; } = new Style { };
 
 
 		/////////////////////////////////////////////////////////////////////////////
 
-		public Html SetTitle( string title )
-		{
-			Title.SetValue( title );
-			return this;
-		}
-
-		/////////////////////////////////////////////////////////////////////////////
+		//
+		// override this if you need some other logic for DOCTYPE
+		//
 
 		public override string Render()
 		{
 			Style.RenderStyles( this );
-			AddAttribute( "lang", Language );
-			return "<!DOCTYPE html>\r\n" + Render( TagRenderMode.Normal );
-		}
-
-
-		/////////////////////////////////////////////////////////////////////////////
-
-		public void Defaults( string title, IEnumerable<string> attrAndstyles )
-		{
-			// ******
-			AddAttributesAndStyles( attrAndstyles );
-
-			// ******
-			Children.AddChild( Head = new Head { } );
-
-			Head.AddChild( Title = new Title( title ) );
-			Head.AddChild( Style = new Style { } );
-
-			// ******
-			Children.AddChild( Body = new Body { } );
+			return "<!DOCTYPE html>\r\n" 
+				+ Render( TagRenderMode.Normal );
 		}
 
 
@@ -71,21 +45,8 @@ namespace SharpHtml {
 
 		public Html()
 		{
-			Defaults( string.Empty, null );
-		}
-
-
-		/////////////////////////////////////////////////////////////////////////////
-
-		public Html( string title = "untitled", IEnumerable<string> attrAndstyles = null )
-		{
-			Defaults( title, attrAndstyles );
-			//this.Body.AddStyle( "background", "lightgray" );
 		}
 
 	}
-
-
-
 
 }

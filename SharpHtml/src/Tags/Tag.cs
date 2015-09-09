@@ -166,6 +166,17 @@ namespace SharpHtml {
 
 		/////////////////////////////////////////////////////////////////////////////
 
+		public bool IdIsEmpty
+		{
+			get
+			{
+				return string.IsNullOrWhiteSpace( _id );
+			}
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
 		const string CLASS_PREFIX = "cls";
 
 		string _styleClassName = string.Empty;
@@ -330,13 +341,28 @@ namespace SharpHtml {
 		/// <summary>
 		/// Inserts the tag supplied by the user, returns the Tag that was called
 		/// </summary>
+		/// <param name="itemAfter"></param>
+		/// <param name="item"></param>
+		/// <returns>returns the tag the item was added to</returns>
+
+		public Tag InsertChildBefore( Tag itemAfter, Tag item )
+		{
+			Children.InsertChildBefore( itemAfter, item );
+			return this;
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+		/// <summary>
+		/// Inserts the tag supplied by the user, returns the Tag that was called
+		/// </summary>
 		/// <param name="itemBefore"></param>
 		/// <param name="item"></param>
 		/// <returns>returns the tag the item was added to</returns>
 
-		public Tag InsertChild( Tag itemBefore, Tag item )
+		public Tag InsertChildAfter( Tag itemBefore, Tag item )
 		{
-			Children.InsertChild( itemBefore, item );
+			Children.InsertChildAfter( itemBefore, item );
 			return this;
 		}
 
@@ -540,7 +566,7 @@ namespace SharpHtml {
 			string currentValue;
 
 			if( Attributes.TryGetValue( "class", out currentValue ) ) {
-				var classesStr = Attributes[ "class" ];
+				var classesStr = Attributes [ "class" ];
 				if( !classesStr.Contains( value ) ) {
 					Attributes [ "class" ] = value + " " + currentValue;
 				}
@@ -689,7 +715,7 @@ namespace SharpHtml {
 
 		public Tag AddStyleBlock( StyleBlockAddAs addAs, string name, IEnumerable<string> styles )
 		{
-			var styleName = StyleBlockName( addAs, name);
+			var styleName = StyleBlockName( addAs, name );
 			//StyleBlocks.Add( new StyleBlock( styleName, styles ) );
 			//AddStyleBlock( new StyleBlock( styleName, styles ) );
 			AddStyleBlock( styleName, styles );
@@ -709,7 +735,7 @@ namespace SharpHtml {
 
 		public Tag AddStyleBlock( StyleBlockAddAs addAs, string name, StylesDictionary styles )
 		{
-			var styleName = StyleBlockName( addAs , name);
+			var styleName = StyleBlockName( addAs, name );
 			StyleBlocks.Add( new StyleBlock( styleName, styles ) );
 			return this;
 		}
@@ -978,6 +1004,9 @@ namespace SharpHtml {
 							.Append( TagName )
 							.Append( '>' );
 
+			if( !IdIsEmpty ) {
+				sb.Append( $" <!-- {Id} -->" );
+			}
 			//
 			// after close tag
 			//

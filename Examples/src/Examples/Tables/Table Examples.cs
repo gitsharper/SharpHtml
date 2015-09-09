@@ -16,6 +16,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using SharpHtml;
+using SharpHtml.Pages;
 
 using static SharpHtml.TableTemplate;
 
@@ -73,24 +74,20 @@ namespace Examples {
 			var srcTags = GetSource( src, saveFileName );
 
 			// ******
-			var html = new Html { };
+			var html = new BasicHtml( "Example" );
 
 			// ******
 			//
 			// https://craig.is/making/rainbows
 			// https://github.com/ccampbell/rainbow
 			//
-			html.Head.AddLink( "../Output/assets/css/code.css", "stylesheet" );
-
-			html.Head.AddScript( "../Output/assets/rainbow/rainbow.min.js" )
-				.SetTagAlign( TagFormatOptions.Horizontal );
-
-			html.Head.AddScript( "../Output/assets/rainbow/language/csharp.js" )
-				.SetTagAlign( TagFormatOptions.Horizontal );
+			html.AddStylesheetRef( "../Output/assets/css/code.css" );
+			html.AddScriptRef( true, "../Output/assets/rainbow/rainbow.min.js" );
+			html.AddScriptRef( true, "../Output/assets/rainbow/language/csharp.js" );
 
 			// ******
-			html.Body.AppendChildren( tags );
-			html.Body.AppendChildren( srcTags );
+			html.Content.AppendChildren( tags );
+			html.Content.AppendChildren( srcTags );
 			var result = html.Render();
 
 			// ******

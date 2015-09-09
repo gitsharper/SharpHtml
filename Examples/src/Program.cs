@@ -16,12 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 using SharpHtml;
-using SharpHtml.Simple;
+//using SharpHtml.SimplePage;
+using SharpHtml.Pages;
 
 using static SharpHtml.TableTemplate;
 
 using Examples;
-//using Tests;
 
 namespace Entry {
 
@@ -32,18 +32,18 @@ namespace Entry {
 
 		/////////////////////////////////////////////////////////////////////////////
 
-		static void RunSimplePageExamples( IEnumerable<string> items )
-		{
-			// ******
-			var page = new SimplePageExamples { };
+		//static void RunSimplePageExamples( IEnumerable<string> items )
+		//{
+		//	// ******
+		//	var page = new SimplePageExamples { };
 
-			//page.CreatePage();
-			//page.CreatePageWithContent1();
-			//page.CreatePageWithContent2();
-			page.CreatePageWithSidebar();
-			page.CreatePageWithFixedSidebar();
+		//	//page.CreatePage();
+		//	//page.CreatePageWithContent1();
+		//	//page.CreatePageWithContent2();
+		//	page.CreatePageWithSidebar();
+		//	page.CreatePageWithFixedSidebar();
 
-		}
+		//}
 
 
 		/////////////////////////////////////////////////////////////////////////////
@@ -91,23 +91,35 @@ namespace Entry {
 					directory = Path.GetDirectoryName( htmlPath );
 				}
 
-				tagList.AddChild( new A( htmlPath ).SetValue( about ) );
+				tagList.AddChild( new A( "file:///" + htmlPath ).SetValue( about ) );
 			}
 
-			var div = new Div().AppendChildren( tagList );
+			//var div = new Div().AppendChildren( tagList );
+
+			var list = new Ul().AddListItems( tagList );
 
 			// ******
 			//var page = new SimplePage<SimpleHtml> { };
 			//page.AddBodyContent( tagList );
 			//var html = page.Html.Render();
 
-			var html = new SimpleHtml { };
-			html.Initialize( "Index", "" );
-			html.BodyMain.AddChild( div );
+			var html = new BasicHtml( "Index" );
+			html.Content.AddChild( list );
 			var text = html.Render();
 
-
 			File.WriteAllText( Path.Combine( directory,"index.html" ), text );
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		static void RunPageExamples( IEnumerable<string> items )
+		{
+			// ******
+			var page = new PageExamples { };
+
+			page.CreateBasicPage();
+			page.CreateSimplePage();
 
 
 		}
@@ -117,8 +129,9 @@ namespace Entry {
 
 		static void Main( string [] args )
 		{
-			RunTableExamples1( args );
-			//RunSimplePageExamples( args );
+			//RunTableExamples1( args );
+
+			RunPageExamples( args );
 		}
 
 	}

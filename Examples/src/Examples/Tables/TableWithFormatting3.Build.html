@@ -1,739 +1,755 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head><title>
-  </title>
-  
-  <style type="text/css">
-    .clstable4 td, th {
-      border : 1px solid black;
-    }
-    .clstable4  {
-      table-layout : fixed;
-      border-collapse : collapse;
-      border : 1px solid black;
-      margin : 0px;
-      padding : 0;
-      background : ivory;
-    }
-    .clstable4 tbody tr td:nth-child(1) {
-      width : 100px;
-      text-align : right;
-    }
-    .clstable4 tbody tr td:nth-child(2) {
-      width : 100px;
-      text-align : right;
-    }
-    .clstable4 tbody tr td:nth-child(3) {
-      width : 100px;
-      text-align : right;
-    }
-    .clstable4 tbody tr td:nth-child(4) {
-      width : 100px;
-      text-align : right;
-    }
-    .clstable4 tbody tr td:nth-child(5) {
-      width : 100px;
-      text-align : right;
-      font-style : italic;
-    }
-    .clstable4 tbody tr td:nth-child(6) {
-      width : 100px;
-      text-align : right;
-      font-style : italic;
-    }
-    .clstable4 tbody tr td:nth-child(7) {
-      width : 100px;
-      text-align : right;
-      font-style : italic;
-    }
-  </style>
-  
-  <link rel="stylesheet" href="../Output/assets/css/code.css">
-  <script src="../Output/assets/rainbow/rainbow.min.js">
-  </script>
-  
-  <script src="../Output/assets/rainbow/language/csharp.js">
-  </script>
-  
-  </head> <body>
-    <h4>
-      Same as TableWithSomeFormatting1 with some headers and some color. The styles are mostly in the style block, the red values in the last column are inline.
-    </h4>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+      Example
+    </title>
     
-    <table id="table4" border="0" class="clstable4">
-      <caption>
-      </caption>
-      
-      <colgroup>
-      </colgroup>
-      
-      <thead>
-        <tr>
-          <th colspan="4"></th> <th colspan="3">4 month moving average</th> 
-        </tr>
-        
-        <tr>
-          <th>Ending Date</th> <th>In</th> <th>Out</th> <th>Diff</th> <th>Moving Avg In</th> <th>Moving Avg Out</th> <th>Moving Avg Diff</th> 
-        </tr>
-        
-      </thead>
-      
-      <tbody>
-        <tr>
-          <td>
-            07 Aug 2015
-          </td>
-          
-          <td>
-            2256.38
-          </td>
-          
-          <td>
-            4181.81
-          </td>
-          
-          <td>
-            -1925.43
-          </td>
-          
-          <td>
-            4056.74
-          </td>
-          
-          <td>
-            5581.50
-          </td>
-          
-          <td style="color : red; ">
-            -1524.76
-          </td>
-          
-        </tr>
-        
-        <tr>
-          <td>
-            31 Jul 2015
-          </td>
-          
-          <td>
-            5836.41
-          </td>
-          
-          <td>
-            6258.67
-          </td>
-          
-          <td>
-            -422.26
-          </td>
-          
-          <td>
-            6144.27
-          </td>
-          
-          <td>
-            6400.80
-          </td>
-          
-          <td style="color : red; ">
-            -256.53
-          </td>
-          
-        </tr>
-        
-        <tr>
-          <td>
-            30 Jun 2015
-          </td>
-          
-          <td>
-            4077.42
-          </td>
-          
-          <td>
-            6304.02
-          </td>
-          
-          <td>
-            -2226.60
-          </td>
-          
-          <td>
-            6660.57
-          </td>
-          
-          <td>
-            6945.06
-          </td>
-          
-          <td style="color : red; ">
-            -284.49
-          </td>
-          
-        </tr>
-        
-        <tr>
-          <td>
-            29 May 2015
-          </td>
-          
-          <td>
-            8518.98
-          </td>
-          
-          <td>
-            6639.72
-          </td>
-          
-          <td>
-            1879.26
-          </td>
-          
-          <td>
-            7524.96
-          </td>
-          
-          <td>
-            7594.78
-          </td>
-          
-          <td style="color : red; ">
-            -69.82
-          </td>
-          
-        </tr>
-        
-        <tr>
-          <td>
-            30 Apr 2015
-          </td>
-          
-          <td>
-            7385.32
-          </td>
-          
-          <td>
-            7891.44
-          </td>
-          
-          <td>
-            -506.12
-          </td>
-          
-          <td>
-            7725.14
-          </td>
-          
-          <td>
-            8204.91
-          </td>
-          
-          <td style="color : red; ">
-            -479.77
-          </td>
-          
-        </tr>
-        
-        <tr>
-          <td>
-            31 Mar 2015
-          </td>
-          
-          <td>
-            6670.57
-          </td>
-          
-          <td>
-            8253.18
-          </td>
-          
-          <td>
-            -1582.61
-          </td>
-          
-          <td>
-            8023.20
-          </td>
-          
-          <td>
-            8105.12
-          </td>
-          
-          <td style="color : red; ">
-            -81.91
-          </td>
-          
-        </tr>
-        
-        <tr>
-          <td>
-            27 Feb 2015
-          </td>
-          
-          <td>
-            9119.52
-          </td>
-          
-          <td>
-            8470.10
-          </td>
-          
-          <td>
-            649.42
-          </td>
-          
-          <td>
-            7902.59
-          </td>
-          
-          <td>
-            7885.88
-          </td>
-          
-          <td>
-            16.71
-          </td>
-          
-        </tr>
-        
-        <tr>
-          <td>
-            30 Jan 2015
-          </td>
-          
-          <td>
-            8279.52
-          </td>
-          
-          <td>
-            7592.07
-          </td>
-          
-          <td>
-            687.45
-          </td>
-          
-          <td>
-            7393.23
-          </td>
-          
-          <td>
-            7336.44
-          </td>
-          
-          <td>
-            56.78
-          </td>
-          
-        </tr>
-        
-        <tr>
-          <td>
-            31 Dec 2014
-          </td>
-          
-          <td>
-            6308.74
-          </td>
-          
-          <td>
-            7595.48
-          </td>
-          
-          <td>
-            -1286.74
-          </td>
-          
-          <td>
-            7092.90
-          </td>
-          
-          <td>
-            6218.56
-          </td>
-          
-          <td>
-            874.34
-          </td>
-          
-        </tr>
-        
-        <tr>
-          <td>
-            28 Nov 2014
-          </td>
-          
-          <td>
-            7591.42
-          </td>
-          
-          <td>
-            6821.78
-          </td>
-          
-          <td>
-            769.64
-          </td>
-          
-          <td>
-            7415.47
-          </td>
-          
-          <td>
-            7664.33
-          </td>
-          
-          <td style="color : red; ">
-            -248.86
-          </td>
-          
-        </tr>
-        
-        <tr>
-          <td>
-            31 Oct 2014
-          </td>
-          
-          <td>
-            7378.55
-          </td>
-          
-          <td>
-            4238.43
-          </td>
-          
-          <td>
-            3140.12
-          </td>
-          
-          <td>
-            8222.23
-          </td>
-          
-          <td>
-            7962.84
-          </td>
-          
-          <td>
-            259.39
-          </td>
-          
-        </tr>
-        
-        <tr>
-          <td>
-            30 Sep 2014
-          </td>
-          
-          <td>
-            7276.43
-          </td>
-          
-          <td>
-            11932.78
-          </td>
-          
-          <td>
-            -4656.35
-          </td>
-          
-          <td>
-            8141.03
-          </td>
-          
-          <td>
-            9360.53
-          </td>
-          
-          <td style="color : red; ">
-            -1219.50
-          </td>
-          
-        </tr>
-        
-        <tr>
-          <td>
-            29 Aug 2014
-          </td>
-          
-          <td>
-            10011.72
-          </td>
-          
-          <td>
-            7717.32
-          </td>
-          
-          <td>
-            2294.40
-          </td>
-          
-          <td>
-            7726.03
-          </td>
-          
-          <td>
-            8282.67
-          </td>
-          
-          <td style="color : red; ">
-            -556.64
-          </td>
-          
-        </tr>
-        
-        <tr>
-          <td>
-            31 Jul 2014
-          </td>
-          
-          <td>
-            7134.93
-          </td>
-          
-          <td>
-            8431.49
-          </td>
-          
-          <td>
-            -1296.56
-          </td>
-          
-          <td>
-            7142.07
-          </td>
-          
-          <td>
-            10462.32
-          </td>
-          
-          <td style="color : red; ">
-            -3320.25
-          </td>
-          
-        </tr>
-        
-        <tr>
-          <td>
-            30 Jun 2014
-          </td>
-          
-          <td>
-            6031.45
-          </td>
-          
-          <td>
-            8699.21
-          </td>
-          
-          <td>
-            -2667.76
-          </td>
-          
-          <td>
-            12015.91
-          </td>
-          
-          <td>
-            12600.54
-          </td>
-          
-          <td style="color : red; ">
-            -584.63
-          </td>
-          
-        </tr>
-        
-        <tr>
-          <td>
-            30 May 2014
-          </td>
-          
-          <td>
-            8259.83
-          </td>
-          
-          <td>
-            14256.27
-          </td>
-          
-          <td>
-            -5996.44
-          </td>
-          
-          <td>
-            10976.41
-          </td>
-          
-          <td>
-            12694.37
-          </td>
-          
-          <td style="color : red; ">
-            -1717.96
-          </td>
-          
-        </tr>
-        
-        <tr>
-          <td>
-            30 Apr 2014
-          </td>
-          
-          <td>
-            21756.45
-          </td>
-          
-          <td>
-            14846.13
-          </td>
-          
-          <td>
-            6910.32
-          </td>
-          
-          <td>
-            13458.87
-          </td>
-          
-          <td>
-            12404.63
-          </td>
-          
-          <td>
-            1054.24
-          </td>
-          
-        </tr>
-        
-        <tr>
-          <td>
-            31 Mar 2014
-          </td>
-          
-          <td>
-            2912.95
-          </td>
-          
-          <td>
-            8980.71
-          </td>
-          
-          <td>
-            -6067.76
-          </td>
-          
-          <td>
-            0.00
-          </td>
-          
-          <td>
-            0.00
-          </td>
-          
-          <td>
-            0.00
-          </td>
-          
-        </tr>
-        
-        <tr>
-          <td>
-            28 Feb 2014
-          </td>
-          
-          <td>
-            15707.21
-          </td>
-          
-          <td>
-            13387.04
-          </td>
-          
-          <td>
-            2320.17
-          </td>
-          
-          <td>
-            0.00
-          </td>
-          
-          <td>
-            0.00
-          </td>
-          
-          <td>
-            0.00
-          </td>
-          
-        </tr>
-        
-      </tbody>
-      
-    </table>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../Output/assets/css/code.css">
+    <style type="text/css">
+      .clstable4 td, th {
+        border : 1px solid black;
+      }
+      .clstable4  {
+        table-layout : fixed;
+        border-collapse : collapse;
+        border : 1px solid black;
+        margin : 0px;
+        padding : 0;
+        background : ivory;
+      }
+      .clstable4 tbody tr td:nth-child(1) {
+        width : 100px;
+        text-align : right;
+      }
+      .clstable4 tbody tr td:nth-child(2) {
+        width : 100px;
+        text-align : right;
+      }
+      .clstable4 tbody tr td:nth-child(3) {
+        width : 100px;
+        text-align : right;
+      }
+      .clstable4 tbody tr td:nth-child(4) {
+        width : 100px;
+        text-align : right;
+      }
+      .clstable4 tbody tr td:nth-child(5) {
+        width : 100px;
+        text-align : right;
+        font-style : italic;
+      }
+      .clstable4 tbody tr td:nth-child(6) {
+        width : 100px;
+        text-align : right;
+        font-style : italic;
+      }
+      .clstable4 tbody tr td:nth-child(7) {
+        width : 100px;
+        text-align : right;
+        font-style : italic;
+      }
+    </style>
     
-    <pre>
-      <code data-language="csharp">
-        #region code
-            public Tuple<string, string> Build()
-            {
-              // ******
-              var tagList = new TagList { };
-              tagList.AddChild( new QuickTag( "h4" )
-                  .SetValue( About ) );
+    <script src="../Output/assets/rainbow/rainbow.min.js">
+    </script>
+    
+    <script src="../Output/assets/rainbow/language/csharp.js">
+    </script>
+    
+  </head>
+  
+  <body>
+    <div id="header-container" class="header-container">
+    </div> <!-- header-container -->
+    
+    <div id="main-container" class="main-container">
+      <h4>
+        Same as TableWithSomeFormatting1 with some headers and some color. The styles are mostly in the style block, the red values in the last column are inline.
+      </h4>
+      
+      <table id="table4" border="0" class="clstable4">
+        <caption>
+        </caption>
         
-              // ******
-              var table = new Table();
-              tagList.AddChild( table );
+        <colgroup>
+        </colgroup>
         
-              table.AddAttributesAndStyles(
-                "table-layout: fixed",
-                "border-collapse: collapse",
-                "border: 1px solid black",
-                "margin: 0px",
-                "padding : 0",
-                "background : ivory"
-                );
+        <thead>
+          <tr>
+            <th colspan="4"></th> <th colspan="3">4 month moving average</th> 
+          </tr>
+          
+          <tr>
+            <th>Ending Date</th> <th>In</th> <th>Out</th> <th>Diff</th> <th>Moving Avg In</th> <th>Moving Avg Out</th> <th>Moving Avg Diff</th> 
+          </tr>
+          
+        </thead>
         
-              table.AddHeaderRow( Content( "", "colspan = 4" ), Content( $"4 month moving average", "colspan = 3" ) )
-                .AddHeaderRow( "Ending Date", "In", "Out", "Diff", "Moving Avg In", "Moving Avg Out", "Moving Avg Diff" );
+        <tbody>
+          <tr>
+            <td>
+              07 Aug 2015
+            </td>
+            
+            <td>
+              2256.38
+            </td>
+            
+            <td>
+              4181.81
+            </td>
+            
+            <td>
+              -1925.43
+            </td>
+            
+            <td>
+              4056.74
+            </td>
+            
+            <td>
+              5581.50
+            </td>
+            
+            <td style="color : red; ">
+              -1524.76
+            </td>
+            
+          </tr>
+          
+          <tr>
+            <td>
+              31 Jul 2015
+            </td>
+            
+            <td>
+              5836.41
+            </td>
+            
+            <td>
+              6258.67
+            </td>
+            
+            <td>
+              -422.26
+            </td>
+            
+            <td>
+              6144.27
+            </td>
+            
+            <td>
+              6400.80
+            </td>
+            
+            <td style="color : red; ">
+              -256.53
+            </td>
+            
+          </tr>
+          
+          <tr>
+            <td>
+              30 Jun 2015
+            </td>
+            
+            <td>
+              4077.42
+            </td>
+            
+            <td>
+              6304.02
+            </td>
+            
+            <td>
+              -2226.60
+            </td>
+            
+            <td>
+              6660.57
+            </td>
+            
+            <td>
+              6945.06
+            </td>
+            
+            <td style="color : red; ">
+              -284.49
+            </td>
+            
+          </tr>
+          
+          <tr>
+            <td>
+              29 May 2015
+            </td>
+            
+            <td>
+              8518.98
+            </td>
+            
+            <td>
+              6639.72
+            </td>
+            
+            <td>
+              1879.26
+            </td>
+            
+            <td>
+              7524.96
+            </td>
+            
+            <td>
+              7594.78
+            </td>
+            
+            <td style="color : red; ">
+              -69.82
+            </td>
+            
+          </tr>
+          
+          <tr>
+            <td>
+              30 Apr 2015
+            </td>
+            
+            <td>
+              7385.32
+            </td>
+            
+            <td>
+              7891.44
+            </td>
+            
+            <td>
+              -506.12
+            </td>
+            
+            <td>
+              7725.14
+            </td>
+            
+            <td>
+              8204.91
+            </td>
+            
+            <td style="color : red; ">
+              -479.77
+            </td>
+            
+          </tr>
+          
+          <tr>
+            <td>
+              31 Mar 2015
+            </td>
+            
+            <td>
+              6670.57
+            </td>
+            
+            <td>
+              8253.18
+            </td>
+            
+            <td>
+              -1582.61
+            </td>
+            
+            <td>
+              8023.20
+            </td>
+            
+            <td>
+              8105.12
+            </td>
+            
+            <td style="color : red; ">
+              -81.91
+            </td>
+            
+          </tr>
+          
+          <tr>
+            <td>
+              27 Feb 2015
+            </td>
+            
+            <td>
+              9119.52
+            </td>
+            
+            <td>
+              8470.10
+            </td>
+            
+            <td>
+              649.42
+            </td>
+            
+            <td>
+              7902.59
+            </td>
+            
+            <td>
+              7885.88
+            </td>
+            
+            <td>
+              16.71
+            </td>
+            
+          </tr>
+          
+          <tr>
+            <td>
+              30 Jan 2015
+            </td>
+            
+            <td>
+              8279.52
+            </td>
+            
+            <td>
+              7592.07
+            </td>
+            
+            <td>
+              687.45
+            </td>
+            
+            <td>
+              7393.23
+            </td>
+            
+            <td>
+              7336.44
+            </td>
+            
+            <td>
+              56.78
+            </td>
+            
+          </tr>
+          
+          <tr>
+            <td>
+              31 Dec 2014
+            </td>
+            
+            <td>
+              6308.74
+            </td>
+            
+            <td>
+              7595.48
+            </td>
+            
+            <td>
+              -1286.74
+            </td>
+            
+            <td>
+              7092.90
+            </td>
+            
+            <td>
+              6218.56
+            </td>
+            
+            <td>
+              874.34
+            </td>
+            
+          </tr>
+          
+          <tr>
+            <td>
+              28 Nov 2014
+            </td>
+            
+            <td>
+              7591.42
+            </td>
+            
+            <td>
+              6821.78
+            </td>
+            
+            <td>
+              769.64
+            </td>
+            
+            <td>
+              7415.47
+            </td>
+            
+            <td>
+              7664.33
+            </td>
+            
+            <td style="color : red; ">
+              -248.86
+            </td>
+            
+          </tr>
+          
+          <tr>
+            <td>
+              31 Oct 2014
+            </td>
+            
+            <td>
+              7378.55
+            </td>
+            
+            <td>
+              4238.43
+            </td>
+            
+            <td>
+              3140.12
+            </td>
+            
+            <td>
+              8222.23
+            </td>
+            
+            <td>
+              7962.84
+            </td>
+            
+            <td>
+              259.39
+            </td>
+            
+          </tr>
+          
+          <tr>
+            <td>
+              30 Sep 2014
+            </td>
+            
+            <td>
+              7276.43
+            </td>
+            
+            <td>
+              11932.78
+            </td>
+            
+            <td>
+              -4656.35
+            </td>
+            
+            <td>
+              8141.03
+            </td>
+            
+            <td>
+              9360.53
+            </td>
+            
+            <td style="color : red; ">
+              -1219.50
+            </td>
+            
+          </tr>
+          
+          <tr>
+            <td>
+              29 Aug 2014
+            </td>
+            
+            <td>
+              10011.72
+            </td>
+            
+            <td>
+              7717.32
+            </td>
+            
+            <td>
+              2294.40
+            </td>
+            
+            <td>
+              7726.03
+            </td>
+            
+            <td>
+              8282.67
+            </td>
+            
+            <td style="color : red; ">
+              -556.64
+            </td>
+            
+          </tr>
+          
+          <tr>
+            <td>
+              31 Jul 2014
+            </td>
+            
+            <td>
+              7134.93
+            </td>
+            
+            <td>
+              8431.49
+            </td>
+            
+            <td>
+              -1296.56
+            </td>
+            
+            <td>
+              7142.07
+            </td>
+            
+            <td>
+              10462.32
+            </td>
+            
+            <td style="color : red; ">
+              -3320.25
+            </td>
+            
+          </tr>
+          
+          <tr>
+            <td>
+              30 Jun 2014
+            </td>
+            
+            <td>
+              6031.45
+            </td>
+            
+            <td>
+              8699.21
+            </td>
+            
+            <td>
+              -2667.76
+            </td>
+            
+            <td>
+              12015.91
+            </td>
+            
+            <td>
+              12600.54
+            </td>
+            
+            <td style="color : red; ">
+              -584.63
+            </td>
+            
+          </tr>
+          
+          <tr>
+            <td>
+              30 May 2014
+            </td>
+            
+            <td>
+              8259.83
+            </td>
+            
+            <td>
+              14256.27
+            </td>
+            
+            <td>
+              -5996.44
+            </td>
+            
+            <td>
+              10976.41
+            </td>
+            
+            <td>
+              12694.37
+            </td>
+            
+            <td style="color : red; ">
+              -1717.96
+            </td>
+            
+          </tr>
+          
+          <tr>
+            <td>
+              30 Apr 2014
+            </td>
+            
+            <td>
+              21756.45
+            </td>
+            
+            <td>
+              14846.13
+            </td>
+            
+            <td>
+              6910.32
+            </td>
+            
+            <td>
+              13458.87
+            </td>
+            
+            <td>
+              12404.63
+            </td>
+            
+            <td>
+              1054.24
+            </td>
+            
+          </tr>
+          
+          <tr>
+            <td>
+              31 Mar 2014
+            </td>
+            
+            <td>
+              2912.95
+            </td>
+            
+            <td>
+              8980.71
+            </td>
+            
+            <td>
+              -6067.76
+            </td>
+            
+            <td>
+              0.00
+            </td>
+            
+            <td>
+              0.00
+            </td>
+            
+            <td>
+              0.00
+            </td>
+            
+          </tr>
+          
+          <tr>
+            <td>
+              28 Feb 2014
+            </td>
+            
+            <td>
+              15707.21
+            </td>
+            
+            <td>
+              13387.04
+            </td>
+            
+            <td>
+              2320.17
+            </td>
+            
+            <td>
+              0.00
+            </td>
+            
+            <td>
+              0.00
+            </td>
+            
+            <td>
+              0.00
+            </td>
+            
+          </tr>
+          
+        </tbody>
         
-              table.AddStyleBlock( StyleBlockAddAs.Class, "td, th", "border : 1px solid black" );
-        
-              table.AddBodyStyles();
-        
-              //
-              // yet another way to set body styles; a StylesFunc allows the interception of columns as they are
-              // added, parameters are the column number being added and the StylesDictionary that represents that
-              // column, return an IEnumerable<string> of styles to merge, or manipulate the styles dictionary
-              // itself
-              //
-              // breaking out the StyleFunction on it's own makes this look a lot less messy and more readable than
-              // inserting the lambda directly into SetDefaultBodyStyles() - at least for the sake of an example
-              //
-              StylesFunc sf = ( col, sd ) => col > 3 ? Styles( "font-style : italic " ) : null;
-              table.SetDefaultBodyStyles( sf, 7, "width : 100px", "text-align : right" );
-        
-              // ******
-              foreach( var item in AccountSummaryData.Create() ) {
-                table.AddBodyRow(
-                    item.Col1.ToString( "dd MMM yyyy" ),
-                    item.Col2.ToString(),
-                    item.Col3.ToString(),
-                    item.Col4.ToString(),
-                    item.Col5.ToString(),
-                    item.Col6.ToString(),
-                    Content( item.Col7.ToString(), item.Col7 < 0 ? "color : red" : null )
-                );
+      </table> <!-- table4 -->
+      
+      <pre>
+        <code data-language="csharp">
+          #region code
+              public Tuple<string, string> Build()
+              {
+                // ******
+                var tagList = new TagList { };
+                tagList.AddChild( new QuickTag( "h4" )
+                    .SetValue( About ) );
+          
+                // ******
+                var table = new Table();
+                tagList.AddChild( table );
+          
+                table.AddAttributesAndStyles(
+                  "table-layout: fixed",
+                  "border-collapse: collapse",
+                  "border: 1px solid black",
+                  "margin: 0px",
+                  "padding : 0",
+                  "background : ivory"
+                  );
+          
+                table.AddHeaderRow( Content( "", "colspan = 4" ), Content( $"4 month moving average", "colspan = 3" ) )
+                  .AddHeaderRow( "Ending Date", "In", "Out", "Diff", "Moving Avg In", "Moving Avg Out", "Moving Avg Diff" );
+          
+                table.AddStyleBlock( StyleBlockAddAs.Class, "td, th", "border : 1px solid black" );
+          
+                table.AddBodyStyles();
+          
+                //
+                // yet another way to set body styles; a StylesFunc allows the interception of columns as they are
+                // added, parameters are the column number being added and the StylesDictionary that represents that
+                // column, return an IEnumerable<string> of styles to merge, or manipulate the styles dictionary
+                // itself
+                //
+                // breaking out the StyleFunction on it's own makes this look a lot less messy and more readable than
+                // inserting the lambda directly into SetDefaultBodyStyles() - at least for the sake of an example
+                //
+                StylesFunc sf = ( col, sd ) => col > 3 ? Styles( "font-style : italic " ) : null;
+                table.SetDefaultBodyStyles( sf, 7, "width : 100px", "text-align : right" );
+          
+                // ******
+                foreach( var item in AccountSummaryData.Create() ) {
+                  table.AddBodyRow(
+                      item.Col1.ToString( "dd MMM yyyy" ),
+                      item.Col2.ToString(),
+                      item.Col3.ToString(),
+                      item.Col4.ToString(),
+                      item.Col5.ToString(),
+                      item.Col6.ToString(),
+                      Content( item.Col7.ToString(), item.Col7 < 0 ? "color : red" : null )
+                  );
+                }
+          
+                // ******
+                return new Tuple<string, string>( Render( tagList ), nameof( TableWithFormatting3 ) );
               }
+              #endregion
+        </code>
         
-              // ******
-              return new Tuple<string, string>( Render( tagList ), About );
-            }
-            #endregion
-      </code>
+      </pre>
       
-    </pre>
+    </div> <!-- main-container -->
+    
+    <div id="footer-container" class="footer-container">
+    </div> <!-- footer-container -->
     
   </body>
   

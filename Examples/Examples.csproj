@@ -53,7 +53,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="src\Data\ExamplesDataClasses.cs" />
-    <Compile Include="src\Examples\SimplePage Examples.cs" />
+    <Compile Include="src\Examples\Pages\Page Examples.cs" />
     <Compile Include="src\Examples\Tables\TableWithFormatting1.cs" />
     <Compile Include="src\Examples\Tables\TableWithData.cs" />
     <Compile Include="src\Examples\Tables\TableWithFormatting3.cs" />
@@ -66,47 +66,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="src\Examples\Output\assets\css\code.css" />
-    <Content Include="src\Examples\Output\assets\rainbow\language\c.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\language\coffeescript.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\language\csharp.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\language\css.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\language\d.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\language\generic.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\language\go.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\language\haskell.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\language\html.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\language\java.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\language\javascript.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\language\lua.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\language\php.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\language\python.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\language\r.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\language\ruby.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\language\scheme.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\language\shell.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\language\smalltalk.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\rainbow.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\rainbow.min.js" />
-    <Content Include="src\Examples\Output\assets\rainbow\themes\all-hallows-eve.css" />
-    <Content Include="src\Examples\Output\assets\rainbow\themes\blackboard.css" />
-    <Content Include="src\Examples\Output\assets\rainbow\themes\dreamweaver.css" />
-    <Content Include="src\Examples\Output\assets\rainbow\themes\espresso-libre.css" />
-    <Content Include="src\Examples\Output\assets\rainbow\themes\github.css" />
-    <Content Include="src\Examples\Output\assets\rainbow\themes\kimbie-dark.css" />
-    <Content Include="src\Examples\Output\assets\rainbow\themes\kimbie-light.css" />
-    <Content Include="src\Examples\Output\assets\rainbow\themes\monokai.css" />
-    <Content Include="src\Examples\Output\assets\rainbow\themes\obsidian.css" />
-    <Content Include="src\Examples\Output\assets\rainbow\themes\paraiso-dark.css" />
-    <Content Include="src\Examples\Output\assets\rainbow\themes\paraiso-light.css" />
-    <Content Include="src\Examples\Output\assets\rainbow\themes\pastie.css" />
-    <Content Include="src\Examples\Output\assets\rainbow\themes\solarized-dark.css" />
-    <Content Include="src\Examples\Output\assets\rainbow\themes\solarized-light.css" />
-    <Content Include="src\Examples\Output\assets\rainbow\themes\sunburst.css" />
-    <Content Include="src\Examples\Output\assets\rainbow\themes\tomorrow-night.css" />
-    <Content Include="src\Examples\Output\assets\rainbow\themes\tricolore.css" />
-    <Content Include="src\Examples\Output\assets\rainbow\themes\twilight.css" />
-    <Content Include="src\Examples\Output\assets\rainbow\themes\zenburnesque.css" />
     <Content Include="src\Examples\Tables\assets\css\code.css" />
     <Content Include="src\Examples\Tables\assets\rainbow\language\c.js" />
     <Content Include="src\Examples\Tables\assets\rainbow\language\coffeescript.js" />
@@ -150,7 +109,6 @@
     <Content Include="src\Examples\Tables\assets\rainbow\themes\zenburnesque.css" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src\Examples\Output\assets\js\" />
     <Folder Include="src\Examples\Tables\assets\js\" />
   </ItemGroup>
   <ItemGroup>

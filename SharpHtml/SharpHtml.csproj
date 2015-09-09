@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Pages\BasicHtml.cs" />
     <Compile Include="src\Extensions\Css\CssExtensions.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -68,10 +69,7 @@
     <Compile Include="src\Interfaces\IStyles.cs" />
     <Compile Include="src\Layouts\FixedSidebarLayout.cs" />
     <Compile Include="src\Layouts\SidebarLayout.cs" />
-    <Compile Include="src\SimplePage\ContentGenerator.cs" />
-    <Compile Include="src\SimplePage\SimpleHtml.cs" />
-    <Compile Include="src\SimplePage\SimplePage.cs" />
-    <Compile Include="src\SimplePage\StaticSimpleHtml.cs" />
+    <Compile Include="src\Pages\SimpleHtml.cs" />
     <Compile Include="src\TableTemplate\ActiveTableTemplate.cs" />
     <Compile Include="src\TableTemplate\TableTemplateBase.cs" />
     <Compile Include="src\Tags\Html\Body\Body.cs" />
@@ -85,6 +83,7 @@
     <Compile Include="src\Helpers\StyleBlockList.cs" />
     <Compile Include="src\Helpers\StyleBlock.cs" />
     <Compile Include="src\Tags\Html\Script.cs" />
+    <Compile Include="src\Tags\List\ListBase.cs" />
     <Compile Include="src\Tags\Navigation\A.cs" />
     <Compile Include="src\Tags\Others\Abbr.cs" />
     <Compile Include="src\Tags\Others\Address.cs" />
@@ -220,6 +219,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\Builders\" />
+    <Folder Include="src\SimplePage\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Extensions\Css\CssExtensions.cs.nmp4">

@@ -117,8 +117,9 @@ namespace SharpHtml {
 		{
 			// ******
 			//
-			// builds all the styles NOT including Styles (dictionary) on the tag which
-			// is handled automatically by us
+			// allows an tag to generate it's own styles, or styles for it's children,
+			// Tag.Render( TagRenderMode ) will add inline styles to the tag, Style.IterateTagStyles()
+			// (above) will add styles that need to be added to the in-page <style> block
 			//
 			tag.BuildUpStyles();
 

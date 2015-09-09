@@ -108,7 +108,7 @@ namespace SharpHtml {
 
 		/////////////////////////////////////////////////////////////////////////////
 
-		public void InsertChild( Tag tagBefore, Tag tag )
+		public void InsertChildBefore( Tag tagAfter, Tag tag )
 		{
 			// ******
 			if( null == tag ) {
@@ -116,13 +116,40 @@ namespace SharpHtml {
 			}
 
 			// ******
-			var index = null == tagBefore ? 0 : tagsList.FindIndex( t => t == tagBefore);
-			if( tagsList.Count == index ) {
+			var index = null == tagAfter ? -1 : tagsList.FindIndex( t => t == tagAfter );
+			if( index < 0 ) {
+				//
+				// head
+				//
+				tagsList.Insert( 0, tag );
+			}
+			else {
+				tagsList.Insert( index, tag );
+			}
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public void InsertChildAfter( Tag tagBefore, Tag tag )
+		{
+			// ******
+			if( null == tag ) {
+				throw new ArgumentNullException( nameof( tag ) );
+			}
+
+			// ******
+			var index = null == tagBefore ? -1 : tagsList.FindIndex( t => t == tagBefore );
+			if( index < 0 ) {
+				//
+				// end
+				//
 				tagsList.Add( tag );
 			}
 			else {
 				tagsList.Insert( 1 + index, tag );
 			}
+
 		}
 
 

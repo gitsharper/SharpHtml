@@ -14,11 +14,14 @@ namespace Examples {
 
 	class TableWithTemplate2 : TableExamplesBase {
 
-		const string About = "Same as TableWithSomeFormatting3() only using a template, a little more verbose but usable many times";
+		const string About = "Same as TableWithSomeFormatting3 only using a template, a little more verbose but usable many times";
 
 		/////////////////////////////////////////////////////////////////////////////
 
 		#region code
+		//
+		// template is in Templates.cs
+		//
 		Tag ModifyTags( AccountSummaryData.Data data, int row, int column, Tag tag )
 		{
 			// ******
@@ -92,8 +95,8 @@ namespace Examples {
 
 			// ******
 			tagList.AddChild( instance.CreateTable() );
-			return new Tuple<string, string>( Render( tagList ), About );
-    }
+			return new Tuple<string, string>( Render( tagList ), nameof( TableWithTemplate2 ) );
+		}
 		#endregion
 
 	}

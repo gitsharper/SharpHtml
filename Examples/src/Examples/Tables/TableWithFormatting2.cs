@@ -14,7 +14,7 @@ namespace Examples {
 
 	class TableWithFormatting2 : TableExamplesBase {
 
-		const string About = "Same as TableWithSomeFormatting1() except we've combined the styles with the data and added a bit of color for negative values in the last column. Unlike TableWithSomeFormatting1 the sytles are defined inline.";
+		const string About = "Same as TableWithSomeFormatting1 except we've combined the styles with the data and added a bit of color for negative values in the last column. Unlike TableWithSomeFormatting1 the sytles are defined inline.";
 
 		/////////////////////////////////////////////////////////////////////////////
 
@@ -44,7 +44,7 @@ namespace Examples {
 			}
 
 			// ******
-			return new Tuple<string, string>( Render( tagList ), About );
+			return new Tuple<string, string>( Render( tagList ), nameof( TableWithFormatting2 ) );
 		}
 		#endregion
 	}

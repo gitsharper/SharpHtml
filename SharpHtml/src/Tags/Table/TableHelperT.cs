@@ -37,7 +37,7 @@ namespace SharpHtml {
 
 	// Thead / Tbody / Tfoot
 
-	public abstract class TableHelperT<T> : Tag //, ITableHelper
+	public abstract class TableHelperT<T> : Tag
 		where T : Tag, new() {
 
 		// ******

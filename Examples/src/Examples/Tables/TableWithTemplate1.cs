@@ -14,11 +14,14 @@ namespace Examples {
 
 	class TableWithTemplate1 : TableExamplesBase {
 
-		const string About = "Same as TableWithSomeFormatting3() only using a template, a little more verbose but usable many times";
+		const string About = "Same as TableWithSomeFormatting3 only using a template, a little more verbose but usable many times";
 
 		/////////////////////////////////////////////////////////////////////////////
 
 		#region code
+		//
+		// template is in Templates.cs
+		//
 		public Tuple<string, string> Build()
 		{
 			// ******
@@ -42,7 +45,7 @@ namespace Examples {
 
 			// ******
 			tagList.AddChild( instance.CreateTable() );
-			return new Tuple<string, string>( Render( tagList ), About );
+			return new Tuple<string, string>( Render( tagList ), nameof( TableWithTemplate1 ) );
 		}
 		#endregion
 	}

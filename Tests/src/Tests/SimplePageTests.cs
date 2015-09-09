@@ -20,7 +20,7 @@ using Xunit;
 using SharpHtml;
 
 using static SharpHtml.TableTemplate;
-using SharpHtml.Simple;
+//using SharpHtml.Simple;
 
 namespace Tests {
 
