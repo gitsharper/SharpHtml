@@ -36,7 +36,7 @@ namespace SharpHtml.Pages {
 
 	/////////////////////////////////////////////////////////////////////////////
 
-	public class SimpleHtml : BasicHtml {
+	public class SimplePage : BasicHtml {
 
 		public const string HeaderId = "header";
 		public const string ContentId = "content";
@@ -64,7 +64,9 @@ namespace SharpHtml.Pages {
 		//
 		// this can be confusing. we are overriding the members Header, Content, and Footer
 		// from BasicHtml. we do this so we can move code developed using BasicHtml to use
-		// SimpleHtml.
+		// SimpleHtml without change when adding items to these elements
+		//
+		// can't use virtual because we're changing the types of the Header/Footer tags
 		//
 		//  <body>
 		//
@@ -90,6 +92,7 @@ namespace SharpHtml.Pages {
 		public new Header Header { get; set; } = new Header { };
 		public new Div Content { get; set; } = new Div { };
 		public new Footer Footer { get; set; } = new Footer { };
+
 
 
 		///////////////////////////////////////////////////////////////////////////////
@@ -160,16 +163,12 @@ namespace SharpHtml.Pages {
 			//
 			// head, the stylesheets give us basic styles including Header/Content/Footer
 			//
-			//AddStylesheetRef( "css/normalize.min.css" );
-			//AddStylesheetRef( "css/main.css" );
-			//AddScriptRef( true, "js/vendor/modernizr-2.8.3-respond-1.4.2.min.js" );
-
 			foreach( var ss in StylesheetRefs) {
-				AddStylesheetRef( ss );
+				AddStylesheetRef( IncludeBase + ss );
 			}
 
 			foreach( var script in HeadScriptRefs) {
-				AddScriptRef( true, script );
+				AddScriptRef( true, IncludeBase + script );
 			}
 
 			// ******
@@ -178,24 +177,11 @@ namespace SharpHtml.Pages {
 			//
 			const string JQUERY_VERSION = "1.11.3";
 
-
-
-			// COMPARE WITH PAGE IN SUBLIME TEXT
-
-			// ALSO CHECK OUT BOOTSTRAP
-
-
-
-
-
-
-
 			AddScriptRef( false, $"https://ajax.googleapis.com/ajax/libs/jquery/{JQUERY_VERSION}/jquery.min.js" );
 			AddScript( false, $"window.jQuery || document.write( '<script src=\"js/vendor/jquery-{JQUERY_VERSION}.min.js\"><\\/script>' )" );
 			
-			//AddScriptRef( false, "js/main.js" );
 			foreach( var script in BodyScriptRefs ) {
-				AddScriptRef( false, script );
+				AddScriptRef( false, IncludeBase + script );
 			}
 
 			foreach( var tag in PageHeader() ) {
@@ -231,7 +217,7 @@ namespace SharpHtml.Pages {
 
 		/////////////////////////////////////////////////////////////////////////////
 
-		public SimpleHtml()
+		public SimplePage()
 		{
 			//
 			// be sure to call Initialize()
@@ -240,7 +226,7 @@ namespace SharpHtml.Pages {
 
 		/////////////////////////////////////////////////////////////////////////////
 
-		public SimpleHtml( string title, string language = DefaultLanguage, string includePath = "", params string [] attrAndstyles )
+		public SimplePage( string title, string language = DefaultLanguage, string includePath = "", params string [] attrAndstyles )
 		{
 			Initialize( title, language, includePath, attrAndstyles );
 		}

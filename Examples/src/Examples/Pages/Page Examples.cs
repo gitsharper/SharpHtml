@@ -177,9 +177,18 @@ namespace Examples {
 
 		///////////////////////////////////////////////////////////////////////////////
 
+		public void CreateExtensiblePage()
+		{
+			var page = new ExtensiblePage( "Extensible Page" );
+			Render( page );
+		}
+
+
+		///////////////////////////////////////////////////////////////////////////////
+
 		public void CreateSimplePage()
 		{
-			var page = new SimpleHtml( "Simple Page" );
+			var page = new SimplePage( "Simple Page" );
 			Render( page );
 		}
 

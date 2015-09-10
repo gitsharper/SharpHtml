@@ -120,6 +120,7 @@ namespace Entry {
 
 			page.CreateBasicPage();
 			page.CreateSimplePage();
+			page.CreateExtensiblePage();
 
 
 		}

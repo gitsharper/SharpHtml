@@ -31,6 +31,7 @@ namespace SharpHtml {
 
 	public enum TagFormatOptions {
 		Horizontal = 0,
+		HorizontalWithReturn,
 		Vertical,
 	}
 
@@ -568,7 +569,7 @@ namespace SharpHtml {
 			if( Attributes.TryGetValue( "class", out currentValue ) ) {
 				var classesStr = Attributes [ "class" ];
 				if( !classesStr.Contains( value ) ) {
-					Attributes [ "class" ] = value + " " + currentValue;
+					Attributes [ "class" ] = currentValue + " " + value;
 				}
 			}
 			else {
@@ -916,6 +917,9 @@ namespace SharpHtml {
 				sb.AppendLine();  // at end of tag
 				sb.AppendLine();  // blank line
 			}
+			else if( TagFormatOptions.HorizontalWithReturn == MultipleTagFormatAlign ) {
+				sb.AppendLine();  // line after closing tag
+			}
 			else {
 				sb.Append( " " );
 			}
@@ -1013,6 +1017,9 @@ namespace SharpHtml {
 			if( TagFormatOptions.Vertical == MultipleTagFormatAlign ) {
 				sb.AppendLine();  // at end of close tag
 				sb.AppendLine();  // blank line following
+			}
+			else if( TagFormatOptions.HorizontalWithReturn == MultipleTagFormatAlign ) {
+				sb.AppendLine();  // line after closing tag
 			}
 			else {
 				sb.Append( " " );

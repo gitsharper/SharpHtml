@@ -13,6 +13,121 @@ using System.Collections.Generic;
 namespace SharpHtml {
 
 
+	public class Pair<T, T1> {
+		public T Key { get; set; }
+		public T1 Value { get; set; }
+	}
+
+	public class KVPList : List<Pair<string, string>> {
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public bool ContainsKey( string key )
+		{
+			return null != Find( kvp => kvp.Key == key );
+		}
+
+
+		///////////////////////////////////////////////////////////////////////////////
+
+		public bool TryGetValue( string key, out string value)
+		{
+			var kvpFound = Find( kvp => kvp.Key == key );
+			if( null != kvpFound) {
+				value = kvpFound.Value;
+				return true;
+			}
+
+			value = null;
+			return false;
+		}
+
+
+		///////////////////////////////////////////////////////////////////////////////
+
+		public string this [ string key ]
+		{
+			get
+			{
+				var kvpFound = Find( kvp => kvp.Key == key );
+				return null == kvpFound ? null : kvpFound.Value;
+			}
+			set
+			{
+				var kvpFound = Find( kvp => kvp.Key == key );
+				if( null != kvpFound ) {
+					kvpFound.Value = value;
+				}
+				else {
+					Add( new Pair<string, string> { Key = key, Value = value } );
+				}
+			}
+		}
+
+
+		///////////////////////////////////////////////////////////////////////////////
+		//
+		//public string Key( int index )
+		//{
+		//	// ******
+		//	if( index < 0 || index >= Count ) {
+		//		throw new ArgumentOutOfRangeException( "index" );
+		//	}
+		//
+		//	return base [ index ].Key;
+		//}
+		//
+		//
+		///////////////////////////////////////////////////////////////////////////////
+		//
+		//public string Value( int index )
+		//{
+		//	// ******
+		//	if( index < 0 || index >= Count ) {
+		//		throw new ArgumentOutOfRangeException( "index" );
+		//	}
+		//
+		//	return base [ index ].Value;
+		//}
+		//
+		//
+		///////////////////////////////////////////////////////////////////////////////
+		//
+		//public KVPList ParsePairs( string text )
+		//{
+		//	// ******
+		//	var lines = new StringList( text, false );
+		//
+		//	// ******
+		//	foreach( string line in lines ) {
+		//		if( string.IsNullOrEmpty( line ) ) {
+		//			continue;
+		//		}
+		//
+		//		// ******
+		//		int index = line.IndexOfAny( new char [] { '=' } );
+		//
+		//		string key = index < 0 ? line : line.Substring( 0, index ).Trim();
+		//		string value = index < 0 ? string.Empty : line.Substring( 1 + index ).Trim();
+		//
+		//		Add( new KeyValuePair<string, string>( key, value ) );
+		//	}
+		//
+		//	// ******
+		//	return this;
+		//}
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public KVPList( StringComparer comparer )
+		{
+
+		}
+
+	}
+
+
 	/////////////////////////////////////////////////////////////////////////////
 
 	//
@@ -29,12 +144,18 @@ namespace SharpHtml {
 	//
 	//public class HtmlItemsDictionary : SortedDictionary<string, string> {
 
-	public class HtmlItemsDictionary : Dictionary<string, string> {
+	// need ordered key value pair where the order is the order in which
+	// they were entered, if one is eliminated then it's replacement shows up
+	// at the current end
+
+	public class HtmlItemsDictionary : KVPList { //Dictionary<string, string> {
 
 		public const bool DefAllowOverwrite = true;
 
 		// ******
 		public bool AllowOverwrite { get; set; } = DefAllowOverwrite;
+
+		//protected KVPList list = new KVPList( StringComparer.Ordinal );
 
 
 		/////////////////////////////////////////////////////////////////////////////
@@ -124,7 +245,8 @@ namespace SharpHtml {
 
 		/////////////////////////////////////////////////////////////////////////////
 
-		public void Merge( Dictionary<string, string> items, bool throwOnError )
+		//public void Merge( Dictionary<string, string> items, bool throwOnError )
+		public void Merge( HtmlItemsDictionary items, bool throwOnError )
 		{
 			// ******
 			if( null == items ) {
@@ -142,7 +264,15 @@ namespace SharpHtml {
 
 		/////////////////////////////////////////////////////////////////////////////
 
-		public HtmlItemsDictionary( Dictionary<string, string> items = null )
+		public HtmlItemsDictionary()
+			: base( StringComparer.Ordinal )
+		{
+		}
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		//public HtmlItemsDictionary( Dictionary<string, string> items = null )
+		public HtmlItemsDictionary( HtmlItemsDictionary items = null )
 			: base( StringComparer.Ordinal )
 		{
 			Merge( items, true );

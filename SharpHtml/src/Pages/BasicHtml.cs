@@ -82,11 +82,14 @@ namespace SharpHtml.Pages {
 		public BasicHtml AddScriptRef( bool addToHead, params string [] srcs )
 		{
 			foreach( var src in srcs ) {
+				var script = Script.NewScriptRef( src );
+				script.SetTagAlign( TagFormatOptions.HorizontalWithReturn );
+
 				if( addToHead ) {
-					Head.AddChild( Script.NewScriptRef( src ) );
+					Head.AddChild( script );
 				}
 				else {
-					Body.AddChild( Script.NewScriptRef( src ) );
+					Body.AddChild( script );
 				}
 			}
 			return this;
