@@ -48,6 +48,24 @@ namespace SharpHtml {
 
 
 		/////////////////////////////////////////////////////////////////////////////
+		
+		public Tag FindFirst( string tagName )
+		{
+			return tagsList.Find( tag => tagName == tag.TagName );
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public Tag FindFirst<T>( ) 
+			where T : Tag
+		{
+			var type = typeof( T );
+			return tagsList.Find( tag => type == tag.GetType() );
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
 
 		public void Clear()
 		{

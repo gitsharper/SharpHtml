@@ -38,6 +38,8 @@ namespace SharpHtml.Pages {
 
 	public class SimplePage : BasicHtml {
 
+		const string JQUERY_VERSION = "1.11.3";
+
 		public const string HeaderId = "header";
 		public const string ContentId = "content";
 		public const string FooterId = "footer";
@@ -61,38 +63,9 @@ namespace SharpHtml.Pages {
 ;
 
 		// ******
-		//
-		// this can be confusing. we are overriding the members Header, Content, and Footer
-		// from BasicHtml. we do this so we can move code developed using BasicHtml to use
-		// SimpleHtml without change when adding items to these elements
-		//
-		// can't use virtual because we're changing the types of the Header/Footer tags
-		//
-		//  <body>
-		//
-		//    <div BasicHtml.Header >
-		//      <header SimpleHtml.Header >
-		//      </header>
-		//    </div>
-		//
-		//    <div BasicHtml.Content >
-		//      <div SimpleHtml.Content >
-		//      </div>
-		//    </div>
-		//
-		//    <div BasicHtml.Footer >
-		//      <footer SimpleHtme.Footer >
-		//      </footer>
-		//    </div>
-		//
-		//  </body>
-		//
-		// as to why ...
-		//
-		public new Header Header { get; set; } = new Header { };
-		public new Div Content { get; set; } = new Div { };
-		public new Footer Footer { get; set; } = new Footer { };
-
+		public Tag Header { get; set; } = new Header { };
+		public Tag Content { get; set; } = new Div { };
+		public Tag Footer { get; set; } = new Footer { };
 
 
 		///////////////////////////////////////////////////////////////////////////////
@@ -175,8 +148,6 @@ namespace SharpHtml.Pages {
 			//
 			// body
 			//
-			const string JQUERY_VERSION = "1.11.3";
-
 			AddScriptRef( false, $"https://ajax.googleapis.com/ajax/libs/jquery/{JQUERY_VERSION}/jquery.min.js" );
 			AddScript( false, $"window.jQuery || document.write( '<script src=\"js/vendor/jquery-{JQUERY_VERSION}.min.js\"><\\/script>' )" );
 			
@@ -185,15 +156,15 @@ namespace SharpHtml.Pages {
 			}
 
 			foreach( var tag in PageHeader() ) {
-				base.Header.AddChild( tag );
+				base.HeaderContainer.AddChild( tag );
 			}
 
 			foreach( var tag in PageContent() ) {
-				base.Content.AddChild( tag );
+				base.BodyContainer.AddChild( tag );
 			}
 
 			foreach( var tag in PageFooter() ) {
-				base.Footer.AddChild( tag );
+				base.FooterContainer.AddChild( tag );
 			}
 
 			// ******

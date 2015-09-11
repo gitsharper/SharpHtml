@@ -4,6 +4,7 @@
 <!--[if IE 8]>         <html class='no-js lt-ie9' lang=''> <![endif]-->
 <!--[if gt IE 8]><!--> <html class='no-js' lang=''> <!--<![endif]-->
   <head>
+    <base href="en">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>
@@ -14,6 +15,16 @@
     <link rel="stylesheet" href="include/css/normalize.min.css">
     <link rel="stylesheet" href="include/css/main.css">
     <style type="text/css">
+      #sidebar {
+        position : absolute;
+        width : 220px;
+        padding : 4px;
+      }
+      #mainContent {
+        width : 80%;
+        padding : 8px;
+        float : right;
+      }
     </style>
     
     <script src="include/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
@@ -28,6 +39,12 @@
     
     <div id="main-container" class="main-container">
       <div id="content" class="main wrapper clearfix">
+        <div id="sidebar">
+        </div> <!-- sidebar -->
+        
+        <div id="mainContent">
+        </div> <!-- mainContent -->
+        
       </div> <!-- content -->
       
     </div> <!-- main-container -->
@@ -46,5 +63,5 @@
     <script src="include/js/main.js"></script>
   </body>
   
-</html> <!-- html1 -->
+</html>
 

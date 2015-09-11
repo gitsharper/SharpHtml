@@ -104,7 +104,7 @@ namespace Entry {
 			//var html = page.Html.Render();
 
 			var html = new BasicHtml( "Index" );
-			html.Content.AddChild( list );
+			html.BodyContainer.AddChild( list );
 			var text = html.Render();
 
 			File.WriteAllText( Path.Combine( directory,"index.html" ), text );
@@ -118,8 +118,8 @@ namespace Entry {
 			// ******
 			var page = new PageExamples { };
 
-			page.CreateBasicPage();
-			page.CreateSimplePage();
+			//page.CreateBasicPage();
+			//page.CreateSimplePage();
 			page.CreateExtensiblePage();
 
 

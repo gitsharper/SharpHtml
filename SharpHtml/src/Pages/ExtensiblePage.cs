@@ -10,6 +10,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+
+using Westwind.Utilities.Dynamic;
 
 using SharpHtml;
 
@@ -18,7 +21,20 @@ namespace SharpHtml.Pages {
 
 	/////////////////////////////////////////////////////////////////////////////
 
-	public class ExtensiblePage : SimplePage {
+	// http://weblog.west-wind.com/posts/2012/Feb/08/Creating-a-dynamic-extensible-C-Expando-Object
+
+	public class ExtensiblePage : Westwind.Utilities.Dynamic.Expando {
+
+		public const string DefaultIncludePath = "include/";
+		public const string DefaultPageTitle = "Page";
+
+
+		public SimplePage Page { get; private set; } = new SimplePage { };
+
+		public Tag Header { get; set; } = new Header { };
+		public Tag Content { get; set; } = new Div { };
+		public Tag Footer { get; set; } = new Footer { };
+
 
 		///////////////////////////////////////////////////////////////////////////////
 		//
@@ -28,9 +44,9 @@ namespace SharpHtml.Pages {
 		//
 		///////////////////////////////////////////////////////////////////////////////
 
-		public override IEnumerable<Tag> PageHeader()
+		public IEnumerable<Tag> PageHeader()
 		{
-			foreach( var tag in base.PageHeader() ) {
+			foreach( var tag in Page.PageHeader() ) {
 				yield return tag;
 			}
 			yield break;
@@ -39,9 +55,9 @@ namespace SharpHtml.Pages {
 
 		///////////////////////////////////////////////////////////////////////////////
 
-		public override IEnumerable<Tag> PageContent()
+		public IEnumerable<Tag> PageContent()
 		{
-			foreach( var tag in base.PageContent() ) {
+			foreach( var tag in Page.PageContent() ) {
 				yield return tag;
 			}
 			yield break;
@@ -50,9 +66,9 @@ namespace SharpHtml.Pages {
 
 		///////////////////////////////////////////////////////////////////////////////
 
-		public override IEnumerable<Tag> PageFooter()
+		public IEnumerable<Tag> PageFooter()
 		{
-			foreach( var tag in base.PageFooter() ) {
+			foreach( var tag in Page.PageFooter() ) {
 				yield return tag;
 			}
 			yield break;
@@ -60,28 +76,92 @@ namespace SharpHtml.Pages {
 
 
 		/////////////////////////////////////////////////////////////////////////////
-		
-		
+		//
+		//
+		//
+		/////////////////////////////////////////////////////////////////////////////
+
+
 		// add Layouts, or whatever - html plugins, need to tell us where they
-		// go, and any assest they require so we can add them
-		
-		
-		
-		
+		// go, and any assets they require so we can add them
+
+
+
+
 		/////////////////////////////////////////////////////////////////////////////
 
-		public ExtensiblePage()
+		//
+		// extension method ?
+		//
+
+		public dynamic AddLayout( Tag toTag, ILayout layout )
 		{
+			//var properties = layout.GetType().GetRuntimeProperties().Where( pi => pi.PropertyType.;
+			var type = layout.GetType();
+			var layoutPropInfos = type.GetProperties( BindingFlags.GetProperty | BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly );
+			var localPropInfos = typeof( ExtensiblePage ).GetProperties( BindingFlags.GetProperty | BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly );
+
+			foreach( var propInfo in layoutPropInfos ) {
+				var propName = propInfo.Name;
+				var propType = propInfo.PropertyType;
+
+				var localPropInfo = localPropInfos.FirstOrDefault( p => propName == p.Name && propType == p.PropertyType );
+
+				if( null != localPropInfo ) {
+					//
+					// save old prop somewhere
+					//
+					localPropInfo.SetValue( this, propInfo.GetValue( layout ) );
+				}
+				else {
+					//
+					// as dynamic property
+					//
+					this [ propName ] = MakeGetReferencedObject( propInfo, layout );
+				}
+			}
+
 			//
-			// be sure to call Initialize() on base
+			// need to insert stuff in tag, but could be one or many
 			//
+
+			layout.Initialize( toTag );
+
+			return this;
+
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		protected void Initialize( SimplePage sp )
+		{
+			// ******
+			Page = sp;
+
+			// ******
+			Header = Page.Header;
+			Content = Page.Content;
+			Footer = Page.Footer;
 		}
 
 		/////////////////////////////////////////////////////////////////////////////
 
-		public ExtensiblePage( string title, string language = DefaultLanguage, string includePath = "", params string [] attrAndstyles )
+		public ExtensiblePage( SimplePage sp )
 		{
-			Initialize( title, language, includePath, attrAndstyles );
+			Initialize( sp );
+		}
+
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public static void Who() { }
+
+		public static ExtensiblePage Create( string title, string language = BasicHtml.DefaultLanguage, string includePath = "", params string [] attrAndStyles )
+		{
+			var sp = new SimplePage( title, includePath, language, attrAndStyles );
+			return new ExtensiblePage( sp );
 		}
 
 	}

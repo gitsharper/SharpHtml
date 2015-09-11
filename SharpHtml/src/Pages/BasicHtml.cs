@@ -37,19 +37,33 @@ namespace SharpHtml.Pages {
 		// <include ...> tag, using this worked out well until the author discovered
 		// that it broke <a> anchors inside of a page
 		//
-		public string IncludePath { get; private set; } = string.Empty;
-		public string PageTitle { get; private set; } = string.Empty;
-		public string Language { get; private set; } = DefaultLanguage;
+		public string IncludePath { get; protected set; } = string.Empty;
+		public string PageTitle { get; protected set; } = string.Empty;
+		public string Language { get; protected set; } = DefaultLanguage;
 
 		// ******
 		public Head Head { get; protected set; } = new Head { };
 		public Body Body { get; protected set; } = new Body { };
 
 		// ******
-		public Div Header { get; set; } = new Div { };
-		public Div Content { get; set; } = new Div { };
-		public Div Footer { get; set; } = new Div { };
+		public Div HeaderContainer { get; set; } = new Div { };
+		public Div BodyContainer { get; set; } = new Div { };
+		public Div FooterContainer { get; set; } = new Div { };
 
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public BasicHtml SetTitle( string newTitle )
+		{
+			PageTitle = newTitle?.Trim() ?? string.Empty;
+			
+			var title = Head.Children.FindFirst<Title>();
+			if( null != title) {
+				title.SetValue( PageTitle );
+			}
+
+			return this;
+		}
 
 		/////////////////////////////////////////////////////////////////////////////
 
@@ -154,15 +168,15 @@ namespace SharpHtml.Pages {
 		public virtual IEnumerable<Tag> EnumBody()
 		{
 			// ******
-			yield return Header.SetId( HeaderContainerId )
+			yield return HeaderContainer.SetId( HeaderContainerId )
 				.AddCssClass( HeaderContainerId );
 
 			// ******
-			yield return Content.SetId( MainContainerId )
+			yield return BodyContainer.SetId( MainContainerId )
 				.AddCssClass( MainContainerId );
 
 			// ******
-			yield return Footer.SetId( FooterContainerId )
+			yield return FooterContainer.SetId( FooterContainerId )
 				.AddCssClass( FooterContainerId );
 		}
 
@@ -188,7 +202,6 @@ namespace SharpHtml.Pages {
 			if( !string.IsNullOrWhiteSpace(Language)) {
 				AddAttribute( "lang", Language );
 			}
-
 
 			// ******
 			foreach( var tag in EnumHtml() ) {

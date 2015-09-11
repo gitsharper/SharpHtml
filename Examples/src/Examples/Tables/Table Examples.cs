@@ -86,8 +86,8 @@ namespace Examples {
 			html.AddScriptRef( true, "../Output/assets/rainbow/language/csharp.js" );
 
 			// ******
-			html.Content.AppendChildren( tags );
-			html.Content.AppendChildren( srcTags );
+			html.BodyContainer.AppendChildren( tags );
+			html.BodyContainer.AppendChildren( srcTags );
 			var result = html.Render();
 
 			// ******

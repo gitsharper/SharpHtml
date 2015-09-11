@@ -20,6 +20,7 @@ using SharpHtml.Layouts;
 
 using static SharpHtml.TableTemplate;
 using SharpHtml.Pages;
+using SharpHtml.Pages.Layouts;
 
 namespace Examples {
 
@@ -179,8 +180,20 @@ namespace Examples {
 
 		public void CreateExtensiblePage()
 		{
-			var page = new ExtensiblePage( "Extensible Page" );
-			Render( page );
+			var page = ExtensiblePage.Create( "Extensible Page" );
+
+			// return what that allows access ?? the SidebarLayout which gives
+			// access to new properties 
+			// use props that are the same name or either one ??
+
+			var dynPage = page.AddLayout( page.Content, new SidebarLayout { } );
+
+			//dynPage.Fred();
+
+			var sidebar = dynPage.Sidebar;
+			//dynPage.Sidebar.AddChild( new Div { }.SetValue( "sidebar content" ) );
+			
+			Render( page.Page );
 		}
 
 

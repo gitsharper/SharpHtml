@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SharpHtml</RootNamespace>
     <AssemblyName>SharpHtml</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -41,7 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Extensions\Page\PageAndLayoutExtensions.cs" />
+    <Compile Include="src\Helpers\Expando\Expando.cs" />
+    <Compile Include="src\Helpers\Expando\PropertyBag.cs" />
     <Compile Include="src\Helpers\StringList.cs" />
+    <Compile Include="src\Interfaces\ILayout.cs" />
     <Compile Include="src\Pages\BasicHtml.cs" />
     <Compile Include="src\Extensions\Css\CssExtensions.cs">
       <AutoGen>True</AutoGen>
@@ -240,6 +246,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OtherTags.txt.nmp4</DependentUpon>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Expando\Expando\Expando.csproj">
+      <Project>{433c2bb8-0642-4735-8d45-d843e6a53c6e}</Project>
+      <Name>Expando</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

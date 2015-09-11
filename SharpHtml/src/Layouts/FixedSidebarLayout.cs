@@ -14,18 +14,18 @@ using System.Text;
 
 using SharpHtml;
 
-namespace SharpHtml.Layouts {
+namespace SharpHtml.Pages.Layouts {
 
 	/////////////////////////////////////////////////////////////////////////////
 
-	public class FixedSidebarLayout {
+	public class FixedSidebarLayout : ILayout {
 
 		//
 		// if you change the sidebar width to make it wider you will also have to
 		// change the content width otherwise the sidebar content will spill over
 		// on top of content. as you decrease the size of the content you might find
 		// it becoming too narrow, if that happens then you will have to increase the
-		// width of the overall body content (BodyMain tag for SimpleHtml)
+		// width of the overall body content area that this is added
 		//
 
 		const string ContentWidth = "80%";
@@ -33,6 +33,16 @@ namespace SharpHtml.Layouts {
 
 		public Tag Sidebar { get; private set; }
 		public Div Content { get; private set; }
+
+
+		/////////////////////////////////////////////////////////////////////////////
+		
+		public Tag Initialize( Tag tag )
+		{
+			tag.AppendChildren( Sidebar, Content );
+			return tag;
+		}
+
 
 		/////////////////////////////////////////////////////////////////////////////
 
@@ -65,7 +75,8 @@ namespace SharpHtml.Layouts {
 			// StyleBlock's don't support IStyle<T>, probably should
 			//
 			Sidebar.AddStyleBlock( 
-				StyleBlockAddAs.Id, "a", 
+				StyleBlockAddAs.Id, 
+					"a", // <a>
 					"display : block", 
 					"float : none", 
 					"margin : 0", 

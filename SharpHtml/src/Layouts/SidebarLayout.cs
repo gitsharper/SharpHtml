@@ -19,7 +19,7 @@ namespace SharpHtml.Layouts {
 
 	/////////////////////////////////////////////////////////////////////////////
 
-	public class SidebarLayout {
+	public class SidebarLayout : ILayout {
 
 		//
 		// if you change the sidebar width to make it wider you will also have to
@@ -34,6 +34,16 @@ namespace SharpHtml.Layouts {
 
 		public Tag Sidebar { get; private set; }
 		public Tag Content { get; private set; }
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public Tag Initialize( Tag tag )
+		{
+			tag.AppendChildren( Sidebar, Content );
+			return tag;
+		}
+
 
 		/////////////////////////////////////////////////////////////////////////////
 
