@@ -21,13 +21,28 @@ namespace SharpHtml.Layouts {
 
 	public class SidebarLayout : ILayout {
 
+		// first, this layout is not fluid/responsive, the sidebar is has a fixed width
+
 		//
-		// if you change the sidebar width to make it wider you will also have to
-		// change the content width otherwise the sidebar content will spill over
-		// on top of content. as you decrease the size of the content you might find
-		// it becoming too narrow, if that happens then you will have to increase the
-		// width of the overall body content (BodyMain tag for SimpleHtml)
+		// Rules for this layout
 		//
+		// if you want fixed width sidebar that does not shrink or expand you need to give it an
+		// "absolute" width value - no percentages. in practice, give your sidebar an absolute
+		// width no-matter-what, it will make your life easier
+		//
+		// if you want a fixed with content - no shrink or expanding - you need to give it an
+		// "absolute" width value - no percentages.
+		//
+		// if you don't mind your sidebar or content's width shrinking or expanding then you can
+		// use percentages for either, or both.
+		//
+		// if you don't want your sidebard and content areas colliding when the browser width is
+		// narrowed you need to set LayoutWidth to some absolute (not percentages) width value.
+		// OR make shure whomever creates the Tag that is passed to Initialize (or one of it's 
+		// parents) has an absolute width set.
+		//
+		//   in addition, you must set an absolute value for the sidebar
+		// 
 
 		const string ContentWidth = "80%";
 		const string SidebarWidth = "220px";
@@ -35,11 +50,24 @@ namespace SharpHtml.Layouts {
 		public Tag Sidebar { get; private set; }
 		public Tag Content { get; private set; }
 
+		public string LayoutWidth = string.Empty;
+
 
 		/////////////////////////////////////////////////////////////////////////////
 
 		public Tag Initialize( Tag tag )
 		{
+			// ******
+			if( null == tag ) {
+				throw new ArgumentNullException( nameof( tag ) );
+			}
+
+			// ******
+			if( !string.IsNullOrWhiteSpace( LayoutWidth ) ) {
+				tag.Width( LayoutWidth.Trim() );
+			}
+
+			// ******
 			tag.AppendChildren( Sidebar, Content );
 			return tag;
 		}
@@ -47,54 +75,46 @@ namespace SharpHtml.Layouts {
 
 		/////////////////////////////////////////////////////////////////////////////
 
-		//public TwoColumnLayout()
-		//{
-		//	// ******
-		//	Content = new Div { }
-		//		.SetId( "mainContent")
-		//		.SetStyleMode( StyleMode.IncludeInStyles )
-		//		//.AddStyle( "display", "table-cell")
-		//		.AddStyle( "width", ContentWidth )
-		//		.AddStyle( "padding", "8px")
-		//		.AddStyle( "float", "right")
-		//		//.AddChild( new Section { } )
-		//		;
-
-		//	// ******
-		//	Sidebar = new Aside { }
-		//		.SetId( "sidebar" )
-		//		.SetStyleMode( StyleMode.IncludeInStyles )
-		//		//.AddStyle( "display", "table-cell" )
-		//		.AddStyle( "width", SidebarWidth )
-		//		.AddStyle( "padding", "4px" )
-		//		.AddStyle( "float", "left" )
-		//		;
-		//}
-
 		public SidebarLayout()
 		{
 			//
 			// this works because the right column is set to float
 			// around the sidebar (because it does not float)
 			//
+			// !! the parent container MUST have a width set for this to work
+			//
 
 			// ******
 			Content = new Div { };
 			Content.SetId( "mainContent" )
 				.SetStyleMode( StyleMode.IncludeInStyles )
-				.AddStyle( "width", ContentWidth )
-				.AddStyle( "padding", "8px" )
-				.AddStyle( "float", "right" )
-				;
+				.Width( ContentWidth )
+				.Padding( "8px" )
+				.Float( "right" );
 
 			// ******
-			Sidebar = new Div { }
+			Sidebar = new Nav { }
 					.SetId( "sidebar" )
 					.SetStyleMode( StyleMode.IncludeInStyles )
-					.AddStyle( "position", "absolute" )
 					.Width( SidebarWidth )
-					.Padding( "4px" )
-					;
+					.Position( "absolute" )
+					//.Float( "left")
+					.Padding( "4px" );
+
+			//
+			// links (<a>) in sidebard
+			//
+			Sidebar.AddStyleBlock(
+				StyleBlockAddAs.Id,
+					"a", // <a>
+					"display : block",
+					"float : none",
+					"margin : 0",
+					"width : auto",
+					"height : auto",
+					"padding : 4px"
+			//,"color : red"
+			);
 		}
 
 

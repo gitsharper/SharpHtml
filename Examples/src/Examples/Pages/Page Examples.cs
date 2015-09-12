@@ -178,21 +178,48 @@ namespace Examples {
 
 		///////////////////////////////////////////////////////////////////////////////
 
+		public void CreateExtensiblePageWithLayout()
+		{
+			// ******
+			var page = ExtensiblePage.Create( "Extensible Page" );
+			SidebarLayout sidebarLayout;
+
+			// ******
+			//
+			// AddLayout() returns a dynamic object that references and page
+			//
+			var dynPage = page.AddLayout( page.Content, sidebarLayout = new SidebarLayout { LayoutWidth = "1400px" } );
+			//
+			// we can use it dynamically
+			//
+			dynPage.Sidebar.AddChild( new A { }.SetValue( "Fixed sidebar content" ) );
+			//
+			// or, since the sidebar properties are now set on the page we can access them
+			// in a type safe way - in other words we get compile time checking
+			//
+			var sidebar1 = page.Get<Tag>( "Sidebar" );
+			sidebar1.AddChild( new A { }.SetValue( "Some more content" ) );
+			//
+			// and we can alos access the sidebar by making use of the FoxedSidebarLayout
+			// itself, it's up to you
+			//
+			var sidebar2 = sidebarLayout.Sidebar;
+			sidebar2.AddChild( new A { }.SetValue( "A last bit of content" ) );
+
+			for( var i = 0; i < 16; i += 1 ) {
+				page.Content.AddChild( new P { }.SetValue( "Some content" ) );
+			}
+
+			Render( page.Page );
+		}
+
+
+		///////////////////////////////////////////////////////////////////////////////
+
 		public void CreateExtensiblePage()
 		{
 			var page = ExtensiblePage.Create( "Extensible Page" );
-
-			// return what that allows access ?? the SidebarLayout which gives
-			// access to new properties 
-			// use props that are the same name or either one ??
-
-			var dynPage = page.AddLayout( page.Content, new SidebarLayout { } );
-
-			//dynPage.Fred();
-
-			var sidebar = dynPage.Sidebar;
-			//dynPage.Sidebar.AddChild( new Div { }.SetValue( "sidebar content" ) );
-			
+			page.Content.AddChild( new Div { }.SetValue( "some content" ) );
 			Render( page.Page );
 		}
 
@@ -201,7 +228,7 @@ namespace Examples {
 
 		public void CreateSimplePage()
 		{
-			var page = new SimplePage( "Simple Page" );
+			var page = new BasicPage( "Simple Page" );
 			Render( page );
 		}
 

@@ -154,108 +154,6 @@ namespace SharpHtml {
 
 
 		/////////////////////////////////////////////////////////////////////////////
-		
-		public delegate object GetReferencedObject();
-
-		public GetReferencedObject MakeGetReferencedObject( PropertyInfo info, object instance )
-		{
-			return () => info.GetValue( instance );
-		}
-
-
-		/////////////////////////////////////////////////////////////////////////////
-
-		protected bool TryGetProperty( string name, out object result )
-		{
-			// ******
-			result = null;
-			var success = false;
-
-			// ******
-			if( Properties.Keys.Contains( name ) ) {
-				result = Properties [ name ];
-				success = true;
-			}
-			else {
-				//
-				// try reflection on instanceType
-				//
-				if( GetProperty( Instance, name, out result ) ) {
-					success = true;
-				}
-			}
-
-			if( success ) {
-				if( null != result ) {
-					//
-					// see if we need to retreive the value from a property
-					// located somewhere else, this allows us to always return
-					// the current value of a property that may have been changed
-					//
-					var gro = result as GetReferencedObject;
-					if( null != gro ) {
-						result = gro();
-					}
-				}
-
-				// ******
-				return true;
-			}
-
-			// ******
-			return false;
-		}
-
-
-		/////////////////////////////////////////////////////////////////////////////
-
-		protected bool TrySetValue( string name, object value )
-		{
-			// ******
-
-			//
-			// always try to set value in Properties first if it already exists there, if
-			// it does not exist there then try instance properties, if not found there then
-			// add to Properties
-			//
-			// question, how can override instance properties if a Property can ONLY be set
-			// once an instance property is not found ??
-			//
-			//  do we care?
-			//
-			//  if we decide to care, add explicit AddPropert() for Properties
-			//
-
-			if( Properties.ContainsKey( name ) ) {
-				Properties [ name ] = value;
-				return true;
-			}
-
-			// ******
-			//
-			// try instance property first because dynamic property will always succeed
-			// with a set
-			//
-			if( Instance != null ) {
-				try {
-					bool result = SetProperty( Instance, name, value );
-					if( result ) {
-						return true;
-					}
-				}
-				catch { }
-			}
-
-			// ******
-			//
-			// no match - set or add to dictionary
-			//
-			Properties [ name ] = value;
-			return true;
-		}
-
-
-		/////////////////////////////////////////////////////////////////////////////
 		/// <summary>
 		/// Try to retrieve a member by name first from instance properties
 		/// followed by the collection entries.
@@ -266,26 +164,7 @@ namespace SharpHtml {
 
 		public override bool TryGetMember( GetMemberBinder binder, out object result )
 		{
-			result = null;
-
-			// first check the Properties collection for member
-			if( Properties.Keys.Contains( binder.Name ) ) {
-				result = Properties [ binder.Name ];
-				return true;
-			}
-
-
-			// Next check for Public properties via Reflection
-			if( Instance != null ) {
-				try {
-					return GetProperty( Instance, binder.Name, out result );
-				}
-				catch { }
-			}
-
-			// failed to retrieve a property
-			result = null;
-			return false;
+			return TryGetProperty( binder.Name, out result );
 		}
 
 
@@ -300,20 +179,7 @@ namespace SharpHtml {
 
 		public override bool TrySetMember( SetMemberBinder binder, object value )
 		{
-
-			// first check to see if there's a native property to set
-			if( Instance != null ) {
-				try {
-					bool result = SetProperty( Instance, binder.Name, value );
-					if( result )
-						return true;
-				}
-				catch { }
-			}
-
-			// no match - set or add to dictionary
-			Properties [ binder.Name ] = value;
-			return true;
+			return TrySetProperty( binder.Name, value );
 		}
 
 
@@ -429,6 +295,132 @@ namespace SharpHtml {
 
 
 		/////////////////////////////////////////////////////////////////////////////
+
+		public delegate object GetReferencedObject();
+
+		public GetReferencedObject MakeGetReferencedObject( PropertyInfo info, object instance )
+		{
+			return () => info.GetValue( instance );
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+		/// <summary>
+		/// Add a property that reads another property and returns it's value. Use this
+		/// when you want to always return the current value on some object where it's
+		/// value may change.
+		/// </summary>
+		/// <param name="name"></param>
+		/// <param name="info"></param>
+		/// <param name="instance"></param>
+
+		public void AddPropertyReference( string name, PropertyInfo info, object instance )
+		{
+			Properties [ name ] = MakeGetReferencedObject( info, instance );
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public void AddProperty( string name, object value )
+		{
+			Properties [ name ] = value;
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public bool TryGetProperty( string name, out object result )
+		{
+			// ******
+			result = null;
+			var success = false;
+
+			// ******
+			if( Properties.Keys.Contains( name ) ) {
+				result = Properties [ name ];
+				success = true;
+			}
+			else {
+				//
+				// try reflection on instanceType
+				//
+				if( GetProperty( Instance, name, out result ) ) {
+					success = true;
+				}
+			}
+
+			if( success ) {
+				if( null != result ) {
+					//
+					// see if we need to retreive the value from a property
+					// located somewhere else, this allows us to always return
+					// the current value of a property that may have been changed
+					//
+					var gro = result as GetReferencedObject;
+					if( null != gro ) {
+						result = gro();
+					}
+				}
+
+				// ******
+				return true;
+			}
+
+			// ******
+			return false;
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		protected bool TrySetProperty( string name, object value )
+		{
+			// ******
+
+			//
+			// always try to set value in Properties first if it already exists there, if
+			// it does not exist there then try instance properties, if not found there then
+			// add to Properties
+			//
+			// question, how can override instance properties if a Property can ONLY be set
+			// once an instance property is not found ??
+			//
+			//  do we care?
+			//
+			//  if we decide to care, add explicit AddPropert() for Properties
+			//
+
+			if( Properties.ContainsKey( name ) ) {
+				Properties [ name ] = value;
+				return true;
+			}
+
+			// ******
+			//
+			// try instance property first because dynamic property will always succeed
+			// with a set
+			//
+			if( Instance != null ) {
+				try {
+					bool result = SetProperty( Instance, name, value );
+					if( result ) {
+						return true;
+					}
+				}
+				catch { }
+			}
+
+			// ******
+			//
+			// no match - set or add to dictionary
+			//
+			Properties [ name ] = value;
+			return true;
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
 		/// <summary>
 		/// Convenience method that provides a string Indexer 
 		/// to the Properties collection AND the strongly typed
@@ -460,7 +452,7 @@ namespace SharpHtml {
 			}
 			set
 			{
-				TrySetValue( key, value );
+				TrySetProperty( key, value );
 			}
 		}
 

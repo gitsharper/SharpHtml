@@ -36,7 +36,7 @@ namespace SharpHtml.Pages {
 
 	/////////////////////////////////////////////////////////////////////////////
 
-	public class SimplePage : BasicHtml {
+	public class BasicPage : BasicHtml {
 
 		const string JQUERY_VERSION = "1.11.3";
 
@@ -188,7 +188,7 @@ namespace SharpHtml.Pages {
 
 		/////////////////////////////////////////////////////////////////////////////
 
-		public SimplePage()
+		public BasicPage()
 		{
 			//
 			// be sure to call Initialize()
@@ -197,7 +197,7 @@ namespace SharpHtml.Pages {
 
 		/////////////////////////////////////////////////////////////////////////////
 
-		public SimplePage( string title, string language = DefaultLanguage, string includePath = "", params string [] attrAndstyles )
+		public BasicPage( string title, string language = DefaultLanguage, string includePath = "", params string [] attrAndstyles )
 		{
 			Initialize( title, language, includePath, attrAndstyles );
 		}

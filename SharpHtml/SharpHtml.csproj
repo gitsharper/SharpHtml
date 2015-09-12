@@ -46,6 +46,7 @@
     <Compile Include="src\Extensions\Page\PageAndLayoutExtensions.cs" />
     <Compile Include="src\Helpers\Expando\Expando.cs" />
     <Compile Include="src\Helpers\Expando\PropertyBag.cs" />
+    <Compile Include="src\Helpers\ReflectionExtensions.cs" />
     <Compile Include="src\Helpers\StringList.cs" />
     <Compile Include="src\Interfaces\ILayout.cs" />
     <Compile Include="src\Pages\BasicHtml.cs" />
@@ -77,7 +78,7 @@
     <Compile Include="src\Layouts\FixedSidebarLayout.cs" />
     <Compile Include="src\Layouts\SidebarLayout.cs" />
     <Compile Include="src\Pages\ExtensiblePage.cs" />
-    <Compile Include="src\Pages\SimplePage.cs" />
+    <Compile Include="src\Pages\BasicPage.cs" />
     <Compile Include="src\TableTemplate\ActiveTableTemplate.cs" />
     <Compile Include="src\TableTemplate\TableTemplateBase.cs" />
     <Compile Include="src\Tags\Html\Body\Body.cs" />
@@ -246,12 +247,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OtherTags.txt.nmp4</DependentUpon>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Expando\Expando\Expando.csproj">
-      <Project>{433c2bb8-0642-4735-8d45-d843e6a53c6e}</Project>
-      <Name>Expando</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

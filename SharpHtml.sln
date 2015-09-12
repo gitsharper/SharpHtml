@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpHtml", "SharpHtml\Shar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpHtmlTests", "Tests\SharpHtmlTests.csproj", "{2FC8D3A3-42F0-4622-A6E4-D68969FE8ACA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expando", "Expando\Expando\Expando.csproj", "{433C2BB8-0642-4735-8D45-D843E6A53C6E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{2FC8D3A3-42F0-4622-A6E4-D68969FE8ACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FC8D3A3-42F0-4622-A6E4-D68969FE8ACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FC8D3A3-42F0-4622-A6E4-D68969FE8ACA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{433C2BB8-0642-4735-8D45-D843E6A53C6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{433C2BB8-0642-4735-8D45-D843E6A53C6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{433C2BB8-0642-4735-8D45-D843E6A53C6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{433C2BB8-0642-4735-8D45-D843E6A53C6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -113,10 +113,6 @@
     <Folder Include="src\Examples\Tables\assets\js\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Expando\Expando\Expando.csproj">
-      <Project>{433c2bb8-0642-4735-8d45-d843e6a53c6e}</Project>
-      <Name>Expando</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SharpHtml\SharpHtml.csproj">
       <Project>{ec880e1a-5dda-4266-a1be-76bfe468cb64}</Project>
       <Name>SharpHtml</Name>
