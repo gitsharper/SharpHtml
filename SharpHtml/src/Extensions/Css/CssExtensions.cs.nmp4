@@ -21,6 +21,21 @@
 
 (#endmacro)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+(#defmacro `CreateCssColorExtension', `name')
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public static T #fixName(`$name')<T>( this IStyles<T> styles, Color color )
+			where T : class
+		{
+			styles.AddStyle( "$name", color.ToString() );
+			return styles as T;
+		}
+
+(#endmacro)
+
 
 #.popBuffer();;
 #region License
@@ -235,5 +250,14 @@ CreateExtension( `box-shadow' )
 CreateExtension( `box-decoration-break' )
 CreateExtension( `opacity' )
 
+CreateCssColorExtension( `background-color' )
+CreateCssColorExtension( `border-bottom-color' )
+CreateCssColorExtension( `border-color' )
+CreateCssColorExtension( `border-left-color' )
+CreateCssColorExtension( `border-right-color' )
+CreateCssColorExtension( `border-top-color' )
+CreateCssColorExtension( `color' )
+CreateCssColorExtension( `outline-color' )
+CreateCssColorExtension( `column-rule-color' )
 	}
 }

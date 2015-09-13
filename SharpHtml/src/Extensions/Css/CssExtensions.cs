@@ -2040,5 +2040,104 @@ namespace SharpHtml {
 
 
 
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public static T BackgroundColor<T>( this IStyles<T> styles, Color color )
+			where T : class
+		{
+			styles.AddStyle( "background-color", color.ToString() );
+			return styles as T;
+		}
+
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public static T BorderBottomColor<T>( this IStyles<T> styles, Color color )
+			where T : class
+		{
+			styles.AddStyle( "border-bottom-color", color.ToString() );
+			return styles as T;
+		}
+
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public static T BorderColor<T>( this IStyles<T> styles, Color color )
+			where T : class
+		{
+			styles.AddStyle( "border-color", color.ToString() );
+			return styles as T;
+		}
+
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public static T BorderLeftColor<T>( this IStyles<T> styles, Color color )
+			where T : class
+		{
+			styles.AddStyle( "border-left-color", color.ToString() );
+			return styles as T;
+		}
+
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public static T BorderRightColor<T>( this IStyles<T> styles, Color color )
+			where T : class
+		{
+			styles.AddStyle( "border-right-color", color.ToString() );
+			return styles as T;
+		}
+
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public static T BorderTopColor<T>( this IStyles<T> styles, Color color )
+			where T : class
+		{
+			styles.AddStyle( "border-top-color", color.ToString() );
+			return styles as T;
+		}
+
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public static T Color<T>( this IStyles<T> styles, Color color )
+			where T : class
+		{
+			styles.AddStyle( "color", color.ToString() );
+			return styles as T;
+		}
+
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public static T OutlineColor<T>( this IStyles<T> styles, Color color )
+			where T : class
+		{
+			styles.AddStyle( "outline-color", color.ToString() );
+			return styles as T;
+		}
+
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public static T ColumnRuleColor<T>( this IStyles<T> styles, Color color )
+			where T : class
+		{
+			styles.AddStyle( "column-rule-color", color.ToString() );
+			return styles as T;
+		}
+
+
 	}
 }

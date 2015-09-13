@@ -9,6 +9,7 @@
 #endregion
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using SharpHtml;
@@ -33,6 +34,58 @@ namespace SharpHtml.Pages {
 			.
 
 	*/
+
+	/////////////////////////////////////////////////////////////////////////////
+	
+	public class AssetsMap {
+
+		public string AssetsBase { get; private set; } = "include";
+		public string CssFolder { get; private set; } = "css";
+		public string ScriptFolder { get; private set; } = "js";
+		public string ImageFolder { get; private set; } = "img";
+
+		public string Assets => AssetsBase;
+		public string Css => Path.Combine( AssetsBase, CssFolder );
+		public string Script => Path.Combine( AssetsBase, ScriptFolder );
+		public string Images => Path.Combine( AssetsBase, ImageFolder );
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public AssetsMap SetBase( string assetsBase )
+		{
+			AssetsBase = string.IsNullOrWhiteSpace( assetsBase ) ? string.Empty : assetsBase.Trim();
+			return this;
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public AssetsMap SetCssFolder( string path )
+		{
+			CssFolder = string.IsNullOrWhiteSpace( path ) ? string.Empty : path.Trim();
+			return this;
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public AssetsMap SetScriptFolder( string path )
+		{
+			ScriptFolder = string.IsNullOrWhiteSpace( path ) ? string.Empty : path.Trim();
+			return this;
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public AssetsMap SetImageFolder( string path )
+		{
+			ImageFolder = string.IsNullOrWhiteSpace( path ) ? string.Empty : path.Trim();
+			return this;
+		}
+
+	}
+
 
 	/////////////////////////////////////////////////////////////////////////////
 
@@ -66,6 +119,37 @@ namespace SharpHtml.Pages {
 		public Tag Header { get; set; } = new Header { };
 		public Tag Content { get; set; } = new Div { };
 		public Tag Footer { get; set; } = new Footer { };
+
+
+		
+		public AssetsMap Assets { get; } = new AssetsMap { };
+		public Stylesheet Stylesheet { get; } = new Stylesheet { };
+
+
+
+		///////////////////////////////////////////////////////////////////////////////
+		
+		public virtual IEnumerable<StylesheetBlock> StylesheetDefs()
+		{
+			/*
+				wrapper
+				clearfix
+				main
+				wrapper
+				clearfix
+			*/
+
+			yield return new StylesheetBlock( "html" )
+				.Color( "#222" )
+				.FontSize( "1em" )
+				.LineHeight( "1.4" );
+
+
+
+
+
+
+		}
 
 
 		///////////////////////////////////////////////////////////////////////////////

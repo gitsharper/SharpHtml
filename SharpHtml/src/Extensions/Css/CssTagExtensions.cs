@@ -12,6 +12,15 @@ namespace SharpHtml {
 
 		/////////////////////////////////////////////////////////////////////////////
 
+		public static string Rgb24ToCss( byte red, byte green, byte blue )
+		{
+			var result = $"#{red:x2}{green:x2}{blue:x2}";
+			return result;
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
 		//public static T Styles<T>( this IStyles<T> styles, IEnumerable<string> values )
 		//	where T : class
 		//{

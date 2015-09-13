@@ -1,0 +1,154 @@
+
+
+Block( "-moz-selection" )
+Background( "#b3d4fc" )
+Text( "shadow none" )
+
+
+Block( "hr" )
+Display( "block" )
+Height( "1px" )
+Border( "0" )
+Border( "top 1pxsolid#ccc" )
+Margin( "1em0" )
+Padding( "0" )
+
+
+Block( "fieldset" )
+Border( "0" )
+Margin( "0" )
+Padding( "0" )
+
+
+Block( ".browserupgrade" )
+Margin( "0.2em0" )
+Background( "#ccc" )
+Color( "#000" )
+Padding( "0.2em0" )
+
+
+Block( ".wrapper" )
+Width( "90%" )
+Margin( "05%" )
+
+
+Block( ".footer-container, .mainaside" )
+Border( "top 20pxsolid#e44d26" )
+
+
+Block( ".title" )
+Color( "white" )
+
+
+Block( "nava" )
+Display( "block" )
+Margin( "bottom 10px" )
+Padding( "15px0" )
+Text( "align center" )
+Text( "decoration none" )
+Font( "weight bold" )
+Color( "white" )
+Background( "#e44d26" )
+
+
+Block( "nava hover" )
+Text( "decoration underline" )
+
+
+Block( ".mainarticleh1" )
+Font( "size 2em" )
+
+
+Block( ".footer-containerfooter" )
+Color( "white" )
+Padding( "20px0" )
+
+
+Block( "
+@Mediaonlyscreenand(min-width 480px)" )
+Nava
+{
+Float( "left" )
+Width( "27%" )
+Margin( "01.7%" )
+Padding( "25px2%" )
+Margin( "bottom 0" )
+
+
+Block( "navli last-childa" )
+Margin( "right 0" )
+
+
+Block( ".oldienava" )
+Margin( "00.7%" )
+
+
+Block( "@mediaonlyscreenand(min-width 768px)" )
+.Header-container, .mainaside
+{
+-Webkit( "box-shadow 05px10px#aaa" )
+-Moz( "box-shadow 05px10px#aaa" )
+Box( "shadow 05px10px#aaa" )
+
+
+Block( "nav" )
+Float( "right" )
+Width( "38%" )
+
+
+Block( ".mainaside" )
+Float( "right" )
+Width( "28%" )
+
+
+Block( "@mediaonlyscreenand(min-width 1140px)" )
+.Wrapper
+{
+Width( "1026px/*1140px-10%formargins*/" )
+Margin( "0auto" )
+
+
+Block( ".hidden" )
+Display( "none!important" )
+Visibility( "hidden" )
+
+
+Block( ".visuallyhidden.focusable active, .visuallyhidden.focusable focus" )
+Clip( "auto" )
+Height( "auto" )
+Margin( "0" )
+Overflow( "visible" )
+Position( "static" )
+Width( "auto" )
+
+
+Block( ".clearfix before, .clearfix after" )
+Content( """" )
+Display( "table" )
+
+
+Block( ".clearfix" )
+*Zoom( "1" )
+
+
+Block( "a, a visited" )
+Text( "decoration underline" )
+
+
+Block( "abbr[title] after" )
+Content( ""("attr(title)")"" )
+
+
+Block( "pre, blockquote" )
+Border( "1pxsolid#999" )
+Page( "break-inside avoid" )
+
+
+Block( "tr, img" )
+Page( "break-inside avoid" )
+
+
+Block( "p, h2, h3" )
+Orphans( "3" )
+Widows( "3" )
+

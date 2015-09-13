@@ -1,0 +1,407 @@
+
+
+html
+{
+color( "#222" )
+font( "size 1em" )
+line( "height 1.4" )
+}
+
+  -moz-selection
+{
+background( "#b3d4fc" )
+text( "shadow none" )
+}
+
+selection
+{
+background( "#b3d4fc" )
+text( "shadow none" )
+}
+
+hr
+{
+display( "block" )
+height( "1px" )
+border( "0" )
+border( "top 1pxsolid#ccc" )
+margin( "1em0" )
+padding( "0" )
+}
+
+audio, canvas, iframe, img, svg, video
+{
+vertical( "align middle" )
+}
+
+fieldset
+{
+border( "0" )
+margin( "0" )
+padding( "0" )
+}
+
+textarea
+{
+resize( "vertical" )
+}
+
+.browserupgrade
+{
+margin( "0.2em0" )
+background( "#ccc" )
+color( "#000" )
+padding( "0.2em0" )
+}
+
+
+/*=====InitializrStyles==================================================
+Author JonathanVerrecchia-verekia.com/initializr/responsive-template
+==========================================================================*/
+
+body
+{
+font( "16px/26pxHelvetica,HelveticaNeue,Arial" )
+}
+
+.wrapper
+{
+width( "90%" )
+margin( "05%" )
+}
+
+/*===================
+ALL OrangeTheme
+===================*/
+
+.header-container
+{
+border( "bottom 20pxsolid#e44d26" )
+}
+
+.footer-container, .mainaside
+{
+border( "top 20pxsolid#e44d26" )
+}
+
+.header-container, .footer-container, .mainaside
+{
+background( "#f16529" )
+}
+
+.title
+{
+color( "white" )
+}
+
+/*==============
+MOBILE Menu
+==============*/
+
+navul
+{
+margin( "0" )
+padding( "0" )
+list( "style-type none" )
+}
+
+nava
+{
+display( "block" )
+margin( "bottom 10px" )
+padding( "15px0" )
+
+text( "align center" )
+text( "decoration none" )
+font( "weight bold" )
+
+color( "white" )
+background( "#e44d26" )
+}
+
+nava hover, nava visited
+{
+color( "white" )
+}
+
+nava hover
+{
+text( "decoration underline" )
+}
+
+/*==============
+MOBILE Main
+==============*/
+
+.main
+{
+padding( "30px0" )
+}
+
+.mainarticleh1
+{
+font( "size 2em" )
+}
+
+.mainaside
+{
+color( "white" )
+padding( "0px5%10px" )
+}
+
+.footer-containerfooter
+{
+color( "white" )
+padding( "20px0" )
+}
+
+/*===============
+ALL IEFixes
+===============*/
+
+.ie7.title
+{
+padding( "top 20px" )
+}
+
+/*==========================================================================
+Author'scustomstyles
+==========================================================================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*==========================================================================
+MediaQueries
+==========================================================================*/
+
+@mediaonlyscreenand(min-width 480px)
+{
+
+/*====================
+INTERMEDIATE Menu
+====================*/
+
+nava
+{
+float( "left" )
+width( "27%" )
+margin( "01.7%" )
+padding( "25px2%" )
+margin( "bottom 0" )
+}
+
+navli first-childa
+{
+margin( "left 0" )
+}
+
+navli last-childa
+{
+margin( "right 0" )
+}
+
+/*========================
+INTERMEDIATE IEFixes
+========================*/
+
+navulli
+{
+display( "inline" )
+}
+
+.oldienava
+{
+margin( "00.7%" )
+}
+}
+
+@mediaonlyscreenand(min-width 768px)
+{
+
+/*====================
+WIDE CSS3Effects
+====================*/
+
+.header-container, .mainaside
+{
+-webkit( "box-shadow 05px10px#aaa" )
+-moz( "box-shadow 05px10px#aaa" )
+box( "shadow 05px10px#aaa" )
+}
+
+/*============
+WIDE Menu
+============*/
+
+.title
+{
+float( "left" )
+}
+
+nav
+{
+float( "right" )
+width( "38%" )
+}
+
+/*============
+WIDE Main
+============*/
+
+.mainarticle
+{
+float( "left" )
+width( "57%" )
+}
+
+.mainaside
+{
+float( "right" )
+width( "28%" )
+}
+}
+
+@mediaonlyscreenand(min-width 1140px)
+{
+
+/*===============
+MaximalWidth
+===============*/
+
+.wrapper
+{
+width( "1026px/*1140px-10%formargins*/" )
+margin( "0auto" )
+}
+}
+
+/*==========================================================================
+Helperclasses
+==========================================================================*/
+
+.hidden
+{
+display( "none!important" )
+visibility( "hidden" )
+}
+
+.visuallyhidden
+{
+border( "0" )
+clip( "rect(0000)" )
+height( "1px" )
+margin( "-1px" )
+overflow( "hidden" )
+padding( "0" )
+position( "absolute" )
+width( "1px" )
+}
+
+.visuallyhidden.focusable active, .visuallyhidden.focusable focus
+{
+clip( "auto" )
+height( "auto" )
+margin( "0" )
+overflow( "visible" )
+position( "static" )
+width( "auto" )
+}
+
+.invisible
+{
+visibility( "hidden" )
+}
+
+.clearfix before, .clearfix after
+{
+content( """" )
+display( "table" )
+}
+
+.clearfix after
+{
+clear( "both" )
+}
+
+.clearfix
+{
+*zoom( "1" )
+}
+
+/*==========================================================================
+Printstyles
+==========================================================================*/
+
+@mediaprint
+{
+*, * before, * after
+{
+background( "transparent!important" )
+color( "#000!important" )
+box( "shadow none!important" )
+text( "shadow none!important" )
+}
+
+a, a visited
+{
+text( "decoration underline" )
+}
+
+a[href] after
+{
+content( ""("attr(href)")"" )
+}
+
+abbr[title] after
+{
+content( ""("attr(title)")"" )
+}
+
+a[href^="#"] after, a[href^="javascript "] after
+{
+content( "\"\"" )
+}
+
+pre, blockquote
+{
+border( "1pxsolid#999" )
+page( "break-inside avoid" )
+}
+
+thead
+{
+display( "table-header-group" )
+}
+
+tr, img
+{
+page( "break-inside avoid" )
+}
+
+img
+{
+max( "width 100%!important" )
+}
+
+p, h2, h3
+{
+orphans( "3" )
+widows( "3" )
+}
+
+h2, h3
+{
+page( "break-after avoid" )
+}

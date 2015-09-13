@@ -27,6 +27,18 @@ namespace SharpHtml {
 		// utility
 		//
 		/////////////////////////////////////////////////////////////////////////////
+		
+		public static string RemoveAllLeading( this string str, char ch )
+		{
+			var s = str;
+			while( ch == s.First()) {
+				s = s.Substring( 1 );
+			}
+			return s;
+		}
+
+		
+		/////////////////////////////////////////////////////////////////////////////
 
 		public static bool TrySplitString( this string str, out char splitChar, out string lhs, out string rhs )
 		{
