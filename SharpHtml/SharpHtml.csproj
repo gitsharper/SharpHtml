@@ -50,6 +50,9 @@
     <Compile Include="src\Helpers\StyleDictionarys\KVPList.cs" />
     <Compile Include="src\Helpers\ReflectionExtensions.cs" />
     <Compile Include="src\Helpers\StringList.cs" />
+    <Compile Include="src\Helpers\Stylesheet\MainCss.cs" />
+    <Compile Include="src\Helpers\Stylesheet\MediaBlock.cs" />
+    <Compile Include="src\Helpers\Stylesheet\RuleBlock.cs" />
     <Compile Include="src\Helpers\Stylesheet\Stylesheet.cs" />
     <Compile Include="src\Interfaces\ILayout.cs" />
     <Compile Include="src\Pages\BasicHtml.cs" />
@@ -231,6 +234,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\Builders\" />
+    <Folder Include="src\Pages\Assests\images\" />
     <Folder Include="src\SimplePage\" />
   </ItemGroup>
   <ItemGroup>
@@ -238,6 +242,7 @@
       <Generator>Nmp4</Generator>
       <LastGenOutput>CssExtensions.cs</LastGenOutput>
     </None>
+    <None Include="src\Pages\Assests\js\vendor\jquery-1.11.3.min.map" />
     <None Include="src\Tags\Others\OtherTags.txt.nmp4">
       <Generator>Nmp4</Generator>
       <LastGenOutput>OtherTags.txt</LastGenOutput>
@@ -245,6 +250,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\Pages\Assests\css\main.css" />
+    <Content Include="src\Pages\Assests\css\normalize.css" />
+    <Content Include="src\Pages\Assests\css\normalize.min.css" />
+    <Content Include="src\Pages\Assests\js\main.js" />
+    <Content Include="src\Pages\Assests\js\vendor\jquery-1.11.3.js" />
+    <Content Include="src\Pages\Assests\js\vendor\jquery-1.11.3.min.js" />
+    <Content Include="src\Pages\Assests\js\vendor\modernizr-2.8.3-respond-1.4.2.min.js" />
     <Content Include="src\Tags\Others\OtherTags.txt">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
