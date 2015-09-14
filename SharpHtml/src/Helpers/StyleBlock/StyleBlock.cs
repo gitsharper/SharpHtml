@@ -31,6 +31,15 @@ namespace SharpHtml {
 
 		/////////////////////////////////////////////////////////////////////////////
 
+		public new StyleBlock AddComment( string comment )
+		{
+			base.AddComment( comment );
+			return this;
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
 		public new StyleBlock ReplaceStyle( string key, string value )
 		{
 			base.ReplaceStyle( key, value );

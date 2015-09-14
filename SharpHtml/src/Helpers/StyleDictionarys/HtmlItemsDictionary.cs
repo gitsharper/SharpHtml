@@ -35,7 +35,8 @@ namespace SharpHtml {
 
 	public class HtmlItemsDictionary : KVPList<string> { //Dictionary<string, string> {
 
-		public const bool DefAllowOverwrite = true;
+		public const string COMMENT_STR = "//";
+    public const bool DefAllowOverwrite = true;
 
 		// ******
 		public bool AllowOverwrite { get; set; } = DefAllowOverwrite;
@@ -60,6 +61,13 @@ namespace SharpHtml {
 		}
 
 
+		/////////////////////////////////////////////////////////////////////////////
+		
+		public void AddComment( string comment )
+		{
+			base.Add( new KVPair<string> { Key = COMMENT_STR, Value = comment } );
+		}
+		
 		/////////////////////////////////////////////////////////////////////////////
 
 		public bool Add( string keyIn, string value, bool allowOverwrite )

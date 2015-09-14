@@ -118,10 +118,10 @@ namespace Entry {
 			// ******
 			var page = new PageExamples { };
 
-			//page.CreateBasicPage();
+			page.CreateBasicPage();
 			//page.CreateSimplePage();
 			//page.CreateExtensiblePage();
-			page.CreateExtensiblePageWithLayout();
+			//page.CreateExtensiblePageWithLayout();
 
 
 		}

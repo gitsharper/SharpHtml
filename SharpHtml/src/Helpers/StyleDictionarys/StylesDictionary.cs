@@ -21,6 +21,15 @@ namespace SharpHtml {
 
 		/////////////////////////////////////////////////////////////////////////////
 
+		public new StylesDictionary AddComment( string comment )
+		{
+			base.AddComment( comment );
+			return this;
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
 		public StylesDictionary ReplaceStyle( string key, string value )
 		{
 			Add( key, value );
@@ -64,6 +73,10 @@ namespace SharpHtml {
 
 			foreach( var attribute in this ) {
 				string key = attribute.Key;
+
+				if( COMMENT_STR == key ) {
+					continue;
+				}
 
 				// ******
 				if( String.Equals( key, "id", StringComparison.Ordinal /* case-sensitive */) && String.IsNullOrEmpty( attribute.Value ) ) {

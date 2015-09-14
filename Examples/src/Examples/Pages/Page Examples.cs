@@ -237,7 +237,7 @@ namespace Examples {
 
 		public void CreateBasicPage()
 		{
-			var page = new BasicHtml( "Basic Page" );
+			var page = new BasicPage( "Basic Page" );
 			Render( page );
 		}
 

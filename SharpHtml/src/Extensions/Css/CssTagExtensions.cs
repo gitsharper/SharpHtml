@@ -21,6 +21,49 @@ namespace SharpHtml {
 
 		/////////////////////////////////////////////////////////////////////////////
 
+		public static T AddComment<T>( this IStyles<T> styles, string comment )
+			where T : class
+		{
+			styles.AddComment( comment );
+			return styles as T;
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public static T ArbitraryStyle<T>( this IStyles<T> styles, string name, string values )
+			where T : class
+		{
+			styles.AddStyle( name, values );
+			return styles as T;
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public static T Zoom<T>( this IStyles<T> styles, string values )
+			where T : class
+		{
+
+			// *zoom ??
+
+			styles.AddStyle( "zoom", values );
+			return styles as T;
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
+		public static T Resize<T>( this IStyles<T> styles, string values )
+			where T : class
+		{
+			styles.AddStyle( "resize", values );
+			return styles as T;
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
 		//public static T Styles<T>( this IStyles<T> styles, IEnumerable<string> values )
 		//	where T : class
 		//{

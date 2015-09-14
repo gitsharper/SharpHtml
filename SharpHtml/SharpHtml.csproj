@@ -47,10 +47,10 @@
     <Compile Include="src\Extensions\Page\PageAndLayoutExtensions.cs" />
     <Compile Include="src\Helpers\Expando\Expando.cs" />
     <Compile Include="src\Helpers\Expando\PropertyBag.cs" />
-    <Compile Include="src\Helpers\KVPList.cs" />
+    <Compile Include="src\Helpers\StyleDictionarys\KVPList.cs" />
     <Compile Include="src\Helpers\ReflectionExtensions.cs" />
     <Compile Include="src\Helpers\StringList.cs" />
-    <Compile Include="src\Helpers\Stylesheet.cs" />
+    <Compile Include="src\Helpers\Stylesheet\Stylesheet.cs" />
     <Compile Include="src\Interfaces\ILayout.cs" />
     <Compile Include="src\Pages\BasicHtml.cs" />
     <Compile Include="src\Extensions\Css\CssExtensions.cs">
@@ -66,15 +66,15 @@
     <Compile Include="src\Extensions\LocalExtensions.cs" />
     <Compile Include="src\Extensions\TableTemplate\TableTemplate.cs" />
     <Compile Include="src\Helpers\Utilities.cs" />
-    <Compile Include="src\Helpers\AttributesDictionary.cs" />
+    <Compile Include="src\Helpers\StyleDictionarys\AttributesDictionary.cs" />
     <Compile Include="src\Helpers\HtmlHelpers.cs" />
-    <Compile Include="src\Helpers\HtmlItemsDictionary.cs" />
+    <Compile Include="src\Helpers\StyleDictionarys\HtmlItemsDictionary.cs" />
     <Compile Include="src\Helpers\FuncRenderer.cs" />
     <Compile Include="src\Helpers\StringIndexer.cs" />
     <Compile Include="src\HtmlWrapper.cs" />
     <Compile Include="src\Interfaces\IRender.cs" />
     <Compile Include="src\Helpers\RenderString.cs" />
-    <Compile Include="src\Helpers\StylesDictionary.cs" />
+    <Compile Include="src\Helpers\StyleDictionarys\StylesDictionary.cs" />
     <Compile Include="src\Interfaces\IActiveTableTemplate.cs" />
     <Compile Include="src\Interfaces\IDefineTableTemplate.cs" />
     <Compile Include="src\Interfaces\IStyles.cs" />
@@ -92,8 +92,8 @@
     <Compile Include="src\Tags\Html\Html.cs" />
     <Compile Include="src\Tags\Html\Head\Style.cs" />
     <Compile Include="src\Tags\Html\Head\Link.cs" />
-    <Compile Include="src\Helpers\StyleBlockList.cs" />
-    <Compile Include="src\Helpers\StyleBlock.cs" />
+    <Compile Include="src\Helpers\StyleBlock\StyleBlockList.cs" />
+    <Compile Include="src\Helpers\StyleBlock\StyleBlock.cs" />
     <Compile Include="src\Tags\Html\Script.cs" />
     <Compile Include="src\Tags\List\ListBase.cs" />
     <Compile Include="src\Tags\Navigation\A.cs" />
@@ -195,7 +195,7 @@
     <Compile Include="src\Tags\Table\Caption.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Helpers\StylesDictionaryList.cs" />
+    <Compile Include="src\Helpers\StyleDictionarys\StylesDictionaryList.cs" />
     <Compile Include="src\Tags\Table\TableHelperT.cs" />
     <Compile Include="src\TableTemplate\DefineTableTemplate.cs" />
     <Compile Include="src\Tags\Tag.cs" />
@@ -244,6 +244,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="src\Pages\Assests\css\main.css" />
     <Content Include="src\Tags\Others\OtherTags.txt">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

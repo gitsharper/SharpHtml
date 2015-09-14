@@ -35,6 +35,10 @@ namespace SharpHtml {
 			foreach( var attribute in this ) {
 				var key = attribute.Key;
 
+				if( COMMENT_STR == key) {
+					continue;
+				}
+
 				// ******
 				if( string.Equals( key, "id", StringComparison.Ordinal ) ) {
 					//

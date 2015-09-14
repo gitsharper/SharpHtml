@@ -620,6 +620,15 @@ namespace SharpHtml {
 		//
 		/////////////////////////////////////////////////////////////////////////////
 
+		public Tag AddComment( string comment )
+		{
+			Styles.AddComment( comment );
+			return this;
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////
+
 		public Tag ReplaceStyle( string key, string value )
 		{
 			Styles.Replace( key, value );
