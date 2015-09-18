@@ -121,11 +121,30 @@ namespace SharpHtml.Pages {
 		public Tag Footer { get; set; } = new Footer { };
 
 
-
 		public AssetsMap Assets { get; } = new AssetsMap { };
-		public Stylesheet Stylesheet { get; } = new Stylesheet { };
+		//public Stylesheet Stylesheet { get; } = new Stylesheet { };
 
 
+		/// <summary>
+		/// This string is prepended to all stylesheet and script references, when Html is browsed
+		/// locally this allows us to put the assets much anywhere. if this is being
+		/// generated for use on an acutal webserver it is probably best to use the default which
+		/// is a local "include/" directory with "css" and other directories benath that
+		/// </summary>
+		public string IncludeBase { get; set; } = "include/";
+
+		public List<string> StylesheetRefs { get; private set; } = new List<string> {
+			"css/normalize.min.css",
+			"css/main.css",
+		};
+
+		public List<string> HeadScriptRefs { get; private set; } = new List<string> {
+			"js/vendor/modernizr-2.8.3-respond-1.4.2.min.js",
+		};
+
+		public List<string> BodyScriptRefs { get; private set; } = new List<string> {
+			"js/main.js",
+		};
 
 
 		///////////////////////////////////////////////////////////////////////////////
@@ -164,28 +183,6 @@ namespace SharpHtml.Pages {
 
 
 		/////////////////////////////////////////////////////////////////////////////
-
-		/// <summary>
-		/// This string is prepended to all stylesheet and script references, when Html is browsed
-		/// locally this allows us to put the assets much anywhere. if this is being
-		/// generated for use on an acutal webserver it is probably best to use the default which
-		/// is a local "include/" directory with "css" and other directories benath that
-		/// </summary>
-		public string IncludeBase { get; set; } = "include/";
-
-		public List<string> StylesheetRefs { get; private set; } = new List<string> {
-			"css/normalize.min.css",
-			"css/main.css",
-		};
-
-		public List<string> HeadScriptRefs { get; private set; } = new List<string> {
-			"js/vendor/modernizr-2.8.3-respond-1.4.2.min.js",
-		};
-
-		public List<string> BodyScriptRefs { get; private set; } = new List<string> {
-			"js/main.js",
-		};
-
 
 		public override BasicHtml Initialize( string title, string language = DefaultLanguage, string includePath = "", params string [] attrAndstyles )
 		{
